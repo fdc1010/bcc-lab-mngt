@@ -363,12 +363,19 @@ $('.add_student').click(function(){
 									<option>2nd</option>\
 									<option>3rd</option>\
 									<option>4th</option>\
-									<option>5th</option>\
 								</select>\
 							</div>\
 							<div class="col-md-6">\
 								<label>Section</label>\
 								<input type="text" name="s_section" class="form-control text-capitalize" required autocomplete="off">\
+							</div>\
+							<div class="col-md-12">\
+								<label>Password</label>\
+								<input type="password" name="s_password" class="form-control text-capitalize" required autocomplete="off">\
+							</div>\
+							<div class="col-md-12">\
+								<label>Confirm Password</label>\
+								<input type="password" name="s_cpassword" class="form-control text-capitalize" required autocomplete="off">\
 							</div>\
 						</div>\
 					</div>\
@@ -449,6 +456,14 @@ $('.add_faculty').click(function(){
 							<option>COED</option>\
 							<option>SAS</option>\
 						</select>\
+					</div>\
+					<div class="form-group">\
+						<label>Password</label>\
+						<input type="password" name="s_password" class="form-control text-capitalize" required autocomplete="off">\
+					</div>\
+					<div class="form-group">\
+						<label>Confirm Password</label>\
+						<input type="password" name="s_cpassword" class="form-control text-capitalize" required autocomplete="off">\
 					</div>\
 					<div class="form-group">\
 						<button class="btn btn-primary btn_faculty" type="submit"><i class="fa fa-plus"></i> Add</button>\

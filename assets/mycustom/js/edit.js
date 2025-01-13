@@ -275,12 +275,9 @@ $('.item-edit').click(function(){
 							</select>\
 						</div>\
 						</div>\
-						<label>MR</label>\
-							<input type="text" name="e_mr" class="form-control" value="'+e_mr+'" required>\
+						<label>Room</label>\
+							<input type="text" name="e_rm" class="form-control" value="'+e_mr+'" required>\
 						</div>\
-						</div>\
-						<label>Price</label>\
-							<input type="number" name="e_price" class="form-control" value="'+e_price+'" required>\
 						</div>\
 						<hr/>\
                         <div class="form-group">\
@@ -509,13 +506,20 @@ table_member.on('click', 'a.edit-member', function(e){
 									<option>2nd</option>\
 									<option>3rd</option>\
 									<option>4th</option>\
-									<option>5th</option>\
 								</select>\
 							</div>\
 							<div class="col-md-6">\
 								<label>Section</label>\
 								<input type="text" name="s_section" class="form-control" value="'+yrs[1]+'" required autocomplete="off">\
 								<input type="hidden" name="app_id" value="'+tr[10]+'">\
+							</div>\
+							<div class="col-md-12">\
+								<label>Password</label>\
+								<input type="password" name="s_password" class="form-control" value="'+yrs[1]+'" required autocomplete="off">\
+							</div>\
+							<div class="col-md-12">\
+								<label>Confirm Password</label>\
+								<input type="password" name="s_cpassword" class="form-control" value="'+yrs[1]+'" required autocomplete="off">\
 							</div>\
 						</div>\
 					</div>\

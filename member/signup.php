@@ -42,7 +42,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#" style="text-transform: uppercase;"> Bacolod City College Laboratory Management</a>
+				<a class="navbar-brand" href="#" style="text-transform: uppercase;"><img src="../assets/logo.png" width="30" /> Bacolod City College Laboratory Management</a>
 			</div>
 							
 		</div><!-- /.container-fluid -->
@@ -133,7 +133,6 @@
 									<option>2nd</option>
 									<option>3rd</option>
 									<option>4th</option>
-									<option>5th</option>
 								</select>
 							</div>
 							<div class="col-md-6">
@@ -145,6 +144,10 @@
 					<div class="form-group">
 						<label>Password</label>
 						<input type="password" name="s_password" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Confirm Password</label>
+						<input type="password" name="s_cpassword" class="form-control" required>
 					</div>
 					<div class="form-group">
 						<button class="btn btn-primary btn_student" type="submit">Sign up</button>
@@ -192,6 +195,10 @@
 					<div class="form-group">
 						<label>Password</label>
 						<input type="password" name="f_password" class="form-control" required autocomplete="off">
+					</div>
+					<div class="form-group">
+						<label>Confirm Password</label>
+						<input type="password" name="f_cpassword" class="form-control" required autocomplete="off">
 					</div>
 					<div class="form-group">
 						<button class="btn btn-primary btn_faculty" type="submit">Sign up</button>

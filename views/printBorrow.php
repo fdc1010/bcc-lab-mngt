@@ -16,7 +16,7 @@
 				<td><img src="logo.png" class="img-responsive" /></td>
 				<td style="text-align:center; font-size:13pt; font-family:'Times New Roman'">
 					<p style="margin:0;padding:0;">Republic of the Philippines</p>
-					<p style="margin:0;padding:0;font-weight:bold;">CARLOS HILADO MEMORIAL STATE COLLEGE</p>
+					<p style="margin:0;padding:0;font-weight:bold;">BACOLOD CITY COLLEGE</p>
 					<p style="margin:0;padding:0;">Talisay City, Negros Occidental</p>
 				</td>
 				<td><img src="logo.png" class="img-responsive" style="visibility: hidden" /></td>

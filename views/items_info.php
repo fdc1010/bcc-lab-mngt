@@ -191,12 +191,8 @@
 									<td class="e_status"></td>
 								</tr>
 								<tr>
-									<td class="col-sm-6">MR</td>
+									<td class="col-sm-6">Room</td>
 									<td class="e_mr"></td>
-								</tr>
-								<tr>
-									<td class="success col-sm-6">Price per Item</td>
-									<td class="e_price"></td>
 								</tr>
 							</tbody>
 						</table>

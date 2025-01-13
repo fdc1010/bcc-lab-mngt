@@ -51,7 +51,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#" style="text-transform: uppercase;"> Bacolod City College Laboratory Management</a>
+				<a class="navbar-brand" href="#" style="text-transform: uppercase;"><img src="../assets/logo.png" width="30" /> Bacolod City College Laboratory Management</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">

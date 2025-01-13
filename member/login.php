@@ -42,7 +42,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#" style="text-transform: uppercase;"> Bacolod City College Laboratory Management</a>
+				<a class="navbar-brand" href="#" style="text-transform: uppercase;"><img src="../assets/logo.png" width="30" /> Bacolod City College Laboratory Management</a>
 			</div>
 							
 		</div><!-- /.container-fluid -->

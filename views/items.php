@@ -231,13 +231,8 @@
 				</div>
 				
 				<div class="form-group">
-					<label>MR</label>
+					<label>Room</label>
 					<input type="text" name="e_mr" class="form-control" required>
-				</div>
-				
-				<div class="form-group">
-					<label>Price</label>
-					<input type="text" name="e_price" class="form-control" required>
 				</div>
 				
 				 <div class="form-group">
