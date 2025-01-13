@@ -56,7 +56,7 @@
 
 			<div class="col-md-4 col-sm-12 col-xs-12 col-md-offset-4">
 				<form class="frm_memberlogin">
-					<h4 class="alert bg-primary">Borrower Login</h4>
+					<h4 class="alert bg-primary">Student / Teacher Login</h4>
 					<div class="form-group">
 						<label>ID Number</label>
 						<input type="number" name="id_number" class="form-control" autofocus="on">

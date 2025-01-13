@@ -23,15 +23,14 @@
 
 
 </head>
-<body class="index-body main-wrapper">
+<body class="index-body main-wrapper" style="overflow: hidden;">
 
 
 	<div class="container-fluid">
-		<div class="row" style="height: 80vh; display: flex; justify-content: end; align-items: center;">
+		<div class="row" style="height: 100vh; display: flex; justify-content: end; align-items: center;">
 			<div class="col-8" style="margin: auto; text-align: center;">
 				<div class="intro-content-wrapper">
-					<h1 class="intro-title" style="color: black;">Bacolod City College</h1>
-					<p class="intro-text" style="color: black;">Laboratory Management</p>
+					<h1 class="intro-title" style="color: black;">Bacolod City College Laboratory Management</h1>
 				</div>
 				<div class="brand-wrapper">
 					<h1><a href="#"><image src="assets/bccseal.png" /></a></h1>
@@ -52,7 +51,7 @@
 									<br>
 									<button class="btn btn-primary btn-block">Log in</button>
 									<br>
-									<a href="./member/login"> Go to Member's Page</a>
+									<a href="./member/login"> Go to Student / Teacher Portal</a>
 								</fieldset>
 							</form>
 						</div>
