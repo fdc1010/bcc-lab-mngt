@@ -483,18 +483,18 @@ table_member.on('click', 'a.edit-member', function(e){
 						<select name="s_department" class="form-control" required>\
 							<option selected>'+tr[4]+'</option>\
 							<optgroup label ="STUDENT">\
-							<option>AB</option>\
-							<option>BEED</option>\
-							<option>BSED</option>\
-							<option>BSCE</option>\
-							<option>BSHRM</option>\
-							<option>BSIS</option>\
+							<option>BSOA</option>\
+							<option>BED</option>\
+							<option>COED</option>\
 							<option>BSIT</option>\
+							<option>ACT/BSIS</option>\
 							</optgroup>\
 							<optgroup label="FACULTY">\
-							<option>CIT</option>\
+							<option>BSOA</option>\
+							<option>BED</option>\
 							<option>COED</option>\
-							<option>SAS</option>\
+							<option>BSIT</option>\
+							<option>ACT/BSIS</option>\
 							</optgroup>\
 						</select>\
 					</div>\

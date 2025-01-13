@@ -342,13 +342,11 @@ $('.add_student').click(function(){
 						<label>Department</label>\
 						<select name="s_department" class="form-control" required>\
 							<option disabled selected>Select department</option>\
-							<option>AB</option>\
-							<option>BEED</option>\
-							<option>BSED</option>\
-							<option>BSCE</option>\
-							<option>BSHRM</option>\
-							<option>BSIS</option>\
+							<option>BSOA</option>\
+							<option>BED</option>\
+							<option>COED</option>\
 							<option>BSIT</option>\
+							<option>ACT/BSIS</option>\
 						</select>\
 					</div>\
 					<div class="form-group hide">\
