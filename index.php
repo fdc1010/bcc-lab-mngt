@@ -40,7 +40,7 @@
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					background-color: rgba(255,255,255,0.7);
+					background-color: rgba(9, 134, 4, 0.38);
 				">
 				<div class="login-panel panel panel-default effect8" style="margin: 15px;">
 					<div class="panel-heading">Bacolod Laboratory Management System</div>
