@@ -105,7 +105,7 @@
 										<li><a href="javascript:;" class="edit-upass" ><i class="fa fa-lock"></i> Change Password</a></li>
 									</ul>
 								</div>';
-					$type = ($value['type'] == 1) ? 'Administrator' : 'Staff/ Student Assistance';
+					$type = ($value['type'] == 1) ? 'Administrator' : 'Staff Assistance';
 					$data['data'][] = array($value['name'],$type,$value['username'],$button,$value['id'],$value['password']);
 				}
 				echo json_encode($data);
@@ -355,8 +355,7 @@
 									'e_type'=>ucwords($value['i_type']),
 									'e_status'=>$item_stat,
 									'e_model'=>ucwords($value['i_model']),
-									'e_mr'=>ucwords($value['i_mr']),
-									'e_price'=>ucwords($value['i_price'])
+									'e_apps'=>ucwords($value['i_apps'])
 									);
 				}
 				echo json_encode($data);
@@ -497,7 +496,7 @@
 			$sql = $conn->prepare('SELECT * FROM item
 									LEFT JOIN item_stock ON item_stock.item_id = item.id
 									GROUP BY item.i_category');
-			$sql->execute(array(4));
+			$sql->execute();
 			$count = $sql->rowCount();
 			$fetch = $sql->fetchAll();
 

@@ -232,7 +232,7 @@
 				
 				<div class="form-group">
 					<label>Room</label>
-					<input type="text" name="e_mr" class="form-control" required>
+					<input type="text" name="e_rm" class="form-control" required>
 				</div>
 				
 				 <div class="form-group">
@@ -242,6 +242,10 @@
 						
 					  </div>
 				
+				<div class="form-group">
+					<label>Apps installed</label>
+					<textarea name="e_apps" class="form-control"></textarea>
+				</div>
 				
 				<div class="form-group">
 					<div class="row">

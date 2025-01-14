@@ -178,10 +178,6 @@
 									<td class="success col-sm-6">Quantity Left</td>
 									<td class="e_stockleft"></td>
 								</tr>
-								<!-- <tr>
-									<td class="col-sm-6">Assign Room</td>
-									<td class="e_assign"></td>
-								</tr> -->
 								<tr>
 									<td class="col-sm-6">Type</td>
 									<td class="e_type"></td>
@@ -191,8 +187,12 @@
 									<td class="e_status"></td>
 								</tr>
 								<tr>
-									<td class="col-sm-6">Room</td>
-									<td class="e_mr"></td>
+									<td class="col-sm-6">Assign Room</td>
+									<td class="e_assign"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-6">Apps Installed</td>
+									<td class="e_apps"></td>
 								</tr>
 							</tbody>
 						</table>

@@ -152,7 +152,7 @@ include 'header.php';
 			<form class="frm_addroom">
 				<h4 class="alert bg-success"><i class="fa fa-plus"></i> Add Room</h4>
 				<div class="form-group">
-					<label>Room Number</label>
+					<label>Room / Laboratory Room Number</label>
 					<input type="number" name="room_name" min="0" class="form-control" autofocus autocomplete="off" required>
 				</div>
 				<div class="form-group">

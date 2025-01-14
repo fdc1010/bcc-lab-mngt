@@ -215,8 +215,10 @@ $('.item-edit').click(function(){
 	var e_type = $('.e_type').text();
 	var e_status = $('.e_status').text();
 	var e_photo= $('.e_photo').text();
-	var e_mr= $('.e_mr').text();
-	var e_price= $('.e_price').text();
+	var e_rm= $('.e_rm').text();
+	var e_apps= $('.e_apps').text();
+	// var e_mr= $('.e_mr').text();
+	// var e_price= $('.e_price').text();
 	
 	// console.log
 	var id = getequipmentid();
@@ -274,10 +276,13 @@ $('.item-edit').click(function(){
 								<option>Non-consumable</option>\
 							</select>\
 						</div>\
-						</div>\
+						<div class="form-group">\
 						<label>Room</label>\
-							<input type="text" name="e_rm" class="form-control" value="'+e_mr+'" required>\
+							<input type="text" name="e_rm" class="form-control" value="'+e_rm+'" required>\
 						</div>\
+						<div class="form-group">\
+						<label>Apps Installed</label>\
+							<textarea name="e_apps" class="form-control">"'+e_apps+'"</textarea>\
 						</div>\
 						<hr/>\
                         <div class="form-group">\

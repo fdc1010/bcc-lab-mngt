@@ -208,7 +208,7 @@
 			
 		}
 
-		public function edititem($e_number,$e_id,$e_category,$e_brand,$e_description,$e_type,$e_model,$e_mr,$e_price)
+		public function edititem($e_number,$e_id,$e_category,$e_brand,$e_description,$e_type,$e_model,$e_rm,$e_apps)
 		{
 			global $conn;
 
@@ -232,8 +232,8 @@
 			$itemID = $fetch['item_id'];
 
 			if($row > 0){
-				$updateitem = $conn->prepare('UPDATE item SET i_deviceID = ?, i_model = ?, i_category = ?, i_brand = ?, i_description = ?, i_type = ?, i_mr = ?, i_price = ? WHERE id = ?');
-				$updateitem->execute(array($e_number,$e_model,$e_category,$e_brand,$e_description,$e_type,$e_mr,$e_price,$itemID));
+				$updateitem = $conn->prepare('UPDATE item SET i_deviceID = ?, i_model = ?, i_category = ?, i_brand = ?, i_description = ?, i_type = ?, i_rm = ?, i_apps = ? WHERE id = ?');
+				$updateitem->execute(array($e_number,$e_model,$e_category,$e_brand,$e_description,$e_type,$e_rm,$e_apps,$itemID));
 				$updateCount = $updateitem->rowCount();
 			
 			$imageName = $_FILES['e_photo']['name'];
@@ -590,10 +590,12 @@
 		$e_description = $_POST['e_description'];
 		$e_type = $_POST['e_type'];
 		$e_model = $_POST['e_model'];
-		$e_mr = $_POST['e_mr'];
-		$e_price = $_POST['e_price'];
+		$e_apps = $_POST['e_apps'];
+		$e_rm = $_POST['e_rm'];
+		// $e_mr = $_POST['e_mr'];
+		// $e_price = $_POST['e_price'];
 		
-		$edit->edititem($e_number,$e_id,$e_category,$e_brand,$e_description,$e_type,$e_model,$e_mr,$e_price);
+		$edit->edititem($e_number,$e_id,$e_category,$e_brand,$e_description,$e_type,$e_model,$e_rm, $e_apps);
 		break;
 
 		case 'edit_member';

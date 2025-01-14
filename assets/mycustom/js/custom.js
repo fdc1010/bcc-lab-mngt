@@ -185,8 +185,10 @@ $.ajax({
         $('.e_type').html(a[0]['e_type']);
         $('.e_status').html(a[0]['e_status']);
         $('.e_model').html(a[0]['e_model']);
-        $('.e_mr').html(a[0]['e_mr']);
-        $('.e_price').html(a[0]['e_price']);
+        $('.e_rm').html(a[0]['e_rm']);
+        $('.e_apps').html(a[0]['e_apps']);
+        // $('.e_mr').html(a[0]['e_mr']);
+        // $('.e_price').html(a[0]['e_price']);
         $('.e_photo').html("<img src='../uploads/"+a[0]['e_photo']+"' style='width:400px; height:250px;' />");
 
         function getequipmentstat(){

@@ -140,7 +140,8 @@ CREATE TABLE IF NOT EXISTS `item` (
   `i_status` int(11) NOT NULL DEFAULT '1',
   `i_mr` varchar(50) NOT NULL,
   `i_price` decimal(10,2) NOT NULL,
-  `i_photo` varchar(100) NOT NULL
+  `i_photo` varchar(100) NOT NULL,
+  `i_apps` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --

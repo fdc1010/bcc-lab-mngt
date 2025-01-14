@@ -99,8 +99,10 @@
 			$e_assigned = $_POST['e_assigned'];
 			$e_type = $_POST['e_type'];
 			$e_status = $_POST['e_status'];
-			$e_mr = $_POST['e_mr'];
-			$e_price = $_POST['e_price'];
+			$e_rm = $_POST['e_rm'];
+			$e_apps = $_POST['e_apps'];
+			// $e_mr = $_POST['e_mr'];
+			// $e_price = $_POST['e_price'];
 
 			session_start();
 			$h_desc = 'add new equipment'. $e_model.' , '.$e_category;
@@ -110,9 +112,9 @@
 
 
 
-			$sql = $conn->prepare('INSERT INTO item(i_deviceID, i_model, i_category, i_brand, i_description, i_type, item_rawstock, i_mr, i_price)
+			$sql = $conn->prepare('INSERT INTO item(i_deviceID, i_model, i_category, i_brand, i_description, i_type, item_rawstock, i_rm, i_apps)
 												VALUES(?,?,?,?,?,?,?,?,?)');
-			$sql->execute(array($e_number,$e_model,$e_category,$e_brand,$e_description,$e_type,$e_stock,$e_mr,$e_price));
+			$sql->execute(array($e_number,$e_model,$e_category,$e_brand,$e_description,$e_type,$e_stock,$e_rm, $e_apps));
 			$row = $sql->rowCount();
 			$itemID = $conn->lastInsertId();
 
@@ -429,7 +431,9 @@
 		$e_assigned = trim($_POST['e_assigned']);
 		$e_type = trim($_POST['e_type']);
 		$e_status = trim($_POST['e_status']);
-		$add_function->add_equipment($e_number,$e_model,$e_category,$e_brand,$e_description,$e_stock,$e_assigned,$e_type,$e_status);
+		$e_rm = trim($_POST['e_rm']);
+		$e_apps = trim($_POST['e_apps']);
+		$add_function->add_equipment($e_number,$e_model,$e_category,$e_brand,$e_description,$e_stock,$e_assigned,$e_type,$e_status,$e_rm,$e_apps);
 		break;
 
 		case 'add_member';
