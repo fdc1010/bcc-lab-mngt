@@ -348,3 +348,13 @@ table#DataTables_Table_5 {
              -o-transform:skew(8deg) rotate(3deg);
                 transform:skew(8deg) rotate(3deg);
     }
+
+
+.bg-navbar-panel {
+    background-color: rgb(9, 134, 4);
+    color: white;
+}
+
+.bg-navbar-panel-translucent {
+    background-color: rgba(9, 134, 4, 0.38);
+}

@@ -150,7 +150,7 @@ include 'header.php';
 	<div class="sidebar-form">
 		<div class="container-fluid">
 			<form class="frm_addroom">
-				<h4 class="alert bg-success"><i class="fa fa-plus"></i> Add Room</h4>
+				<h4 class="alert bg-navbar-panel"><i class="fa fa-plus"></i> Add Room</h4>
 				<div class="form-group">
 					<label>Room / Laboratory Room Number</label>
 					<input type="number" name="room_name" min="0" class="form-control" autofocus autocomplete="off" required>
@@ -175,7 +175,7 @@ include 'header.php';
 			<!-- <form>
 				<hr>
 				<div class="form-group">
-					<h4 class="alert bg-success">Upload csv file here</h4>
+					<h4 class="alert bg-navbar-panel">Upload csv file here</h4>
 				</div>
 				<div class="form-group">
 					<a href="">Download csv format here.</a>
@@ -196,7 +196,7 @@ include 'header.php';
 	<div class="sidebar-form">
 		<div class="container-fluid">
 			<form class="frm_editroom">
-				<h4 class="alert bg-success"><i class="fa fa-edit"></i> Edit Room</h4>
+				<h4 class="alert bg-navbar-panel"><i class="fa fa-edit"></i> Edit Room</h4>
 				<div class="form-group">
 					<label>Room Name</label>
 					<input type="text" name="edit_rm_name" class="form-control" autofocus required autocomplete="off" >

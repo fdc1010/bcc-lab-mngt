@@ -160,7 +160,7 @@ include 'header.php';
 	<div class="sidebar-form">
 		<div class="container-fluid">
 			<form class="frmadd_users">
-				<h4 class="alert bg-success">Add User</h4>
+				<h4 class="alert bg-navbar-panel">Add User</h4>
 				<div class="form-group">
 					<label>Name</label>
 					<input type="text" name="u_fname" class="form-control" required="required">

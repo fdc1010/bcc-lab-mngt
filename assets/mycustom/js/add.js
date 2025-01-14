@@ -179,7 +179,7 @@ $('.item-add').click(function(){
     var id = getequipmentid();
     console.log(id);
     var append = '  <form class="frm_eadditem">\
-                        <h4 class="alert bg-success">Add Quantity</h4>\
+                        <h4 class="alert bg-navbar-panel">Add Quantity</h4>\
                         <div class="form-group">\
                             <label>Quantity</label>\
                             <input type="number" name="item_qty" class="form-control" min="1" required autofocus="on">\

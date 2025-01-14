@@ -159,7 +159,7 @@
 <div class="right-sidebar equipment-side">
 	<div class="sidebar-form">
 		<div class="container-fluid">
-			<h4 class="alert bg-success">
+			<h4 class="alert bg-navbar-panel">
 				<svg class="glyph stroked plus sign">
 					<use xlink:href="#stroked-plus-sign"/>
 				</svg>

@@ -59,7 +59,7 @@ table_equipment.on('click', 'a.equip_details', function(e){
     $('.equipment-view').toggle(effect, options, duration);
 
     $('.equipment-form').html('<div class="container-fluid">\
-								<h4 class="alert bg-success">\
+								<h4 class="alert bg-navbar-panel">\
 									<svg class="glyph stroked plus sign">\
 										<use xlink:href="#stroked-plus-sign"/>\
 									</svg>\
@@ -143,7 +143,7 @@ table_equipment.on('click', 'a.equip_moveroom', function(e){
 	var container = $('.equipment-form');
 	var appendhtml = '	<div class="container-fluid">\
 							<form class="frm_moveequip">\
-								<h4 class="alert bg-success">\
+								<h4 class="alert bg-navbar-panel">\
 									<svg class="glyph stroked plus sign">\
 										<use xlink:href="#stroked-plus-sign"/>\
 									</svg>\
@@ -225,7 +225,7 @@ $('.item-edit').click(function(){
 
 
      var append = '  <form class="frm_edititem">\
-                        <h4 class="alert bg-success">Edit Item</h4>\
+                        <h4 class="alert bg-navbar-panel">Edit Item</h4>\
                         <div class="form-group">\
 						<label>Device ID</label>\
 							<input type="text" name="e_number" class="form-control" value="'+deviceid+'" required>\
@@ -359,7 +359,7 @@ $('.item-change').click(function(){
     //
 
     var append = '  <form class="frm_echangeitem">\
-                        <h4 class="alert bg-success">Change item status</h4>\
+                        <h4 class="alert bg-navbar-panel">Change item status</h4>\
                         <div class="form-group">\
                             <label>Status</label>\
                             <select name="change_status" class="form-control" required="required">\
@@ -632,7 +632,7 @@ table_user.on('click', 'a.edit-user', function(e){
 
 
 	var form = '<form class="edit_user">\
-				<br><br><br><h4 class="alert bg-success">Edit User</h4>\
+				<br><br><br><h4 class="alert bg-navbar-panel">Edit User</h4>\
 				<div class="form-group">\
 					<label>Name</label>\
 					<input type="text" name="u_fname" class="form-control" value="'+tr[0]+'" required="required">\
@@ -758,7 +758,7 @@ table_user.on('click', 'a.edit-upass', function(e){
 	var id = tr[4];
 
 	var form = '<form class="changepass">\
-				<br><br><br><h4 class="alert bg-success">Change Password</h4>\
+				<br><br><br><h4 class="alert bg-navbar-panel">Change Password</h4>\
 				<div class="form-group">\
 					<label>Current Password</label>\
 					<input type="password" name="c_pass" class="form-control" value="'+tr[5]+'" required="required" disabled>\

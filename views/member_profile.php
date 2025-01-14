@@ -164,7 +164,7 @@ include 'header.php';
 <div class="right-sidebar member-side">
 	<div class="sidebar-form">
 		<div class="container-fluid">
-			<h4 class="alert bg-success">Add Member</h4>
+			<h4 class="alert bg-navbar-panel">Add Member</h4>
 			<div class="form-group">
 				<a class="btn btn-primary btn-block" target="_blank" download="member_format.csv" href="../assets/downloadables/member_format.csv">
 					<i class="fa fa-download"></i>
