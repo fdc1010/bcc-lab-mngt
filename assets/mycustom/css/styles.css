@@ -351,10 +351,10 @@ table#DataTables_Table_5 {
 
 
 .bg-navbar-panel {
-    background-color: rgb(9, 134, 4);
+    background-color: #184c1c;
     color: white;
 }
 
-.bg-navbar-panel-translucent {
+.bg-right-panel-translucent {
     background-color: rgba(9, 134, 4, 0.38);
 }
