@@ -36,12 +36,7 @@
 					<h1><a href="#"><image src="assets/bccseal.png" /></a></h1>
 				</div>
 			</div>
-			<div class="col-4" style="height: 100%;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					background-color: rgba(9, 134, 4, 0.38);
-				">
+			<div class="col-4 bg-navbar-panel-translucent" style="height: 100%; display: flex; justify-content: center; align-items: center;">
 				<div class="login-panel panel panel-default effect8" style="margin: 15px;">
 					<div class="panel-heading">Bacolod Laboratory Management System</div>
 						<div class="panel-body">

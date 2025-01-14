@@ -43,7 +43,7 @@
 
 
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container-fluid" style="background-color: rgba(9, 134, 4, 0.38);">
+		<div class="container-fluid bg-navbar-panel">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
 					<span class="sr-only">Toggle navigation</span>
