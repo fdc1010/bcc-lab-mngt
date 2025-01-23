@@ -99,7 +99,7 @@ $.ajax({
         $('select[name="e_assigned"]').html(select);
         $('body select[name="e_assigned1"]').html(select);
    }else{
-        $('select[name="e_assigned"]').html('<option disabled selected>Please select assign room</option>');
+        $('select[name="e_rm"]').html('<option disabled selected>Please select room</option>');
    }
 })
 .fail(function(data){

@@ -355,7 +355,8 @@
 									'e_type'=>ucwords($value['i_type']),
 									'e_status'=>$item_stat,
 									'e_model'=>ucwords($value['i_model']),
-									'e_apps'=>ucwords($value['i_apps'])
+									'e_rm'=>ucwords($value['i_rm']),
+									'e_apps'=>$value['i_apps']
 									);
 				}
 				echo json_encode($data);
