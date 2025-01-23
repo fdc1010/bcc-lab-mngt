@@ -187,8 +187,8 @@
 									<td class="e_status"></td>
 								</tr>
 								<tr>
-									<td class="col-sm-6">Assign Room</td>
-									<td class="e_assign"></td>
+									<td class="col-sm-6">Room</td>
+									<td class="e_rm"></td>
 								</tr>
 								<tr>
 									<td class="col-sm-6">Apps Installed</td>

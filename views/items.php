@@ -209,7 +209,7 @@
 					<input type="number" name="e_stock" class="form-control" min="1" required>
 				</div>
 				<div class="form-group hide">
-					<label>Assign Room</label>
+					<label>Room</label>
 					<select name="e_assigned" class="form-control" required>
 					</select>
 				</div>

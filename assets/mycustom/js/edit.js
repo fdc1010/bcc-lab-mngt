@@ -90,8 +90,8 @@ table_equipment.on('click', 'a.equip_details', function(e){
 										<input type="text" name="e_stock" class="form-control" value="'+data[2]+'" readonly>\
 									</div>\
 									<div class="form-group">\
-										<label>Assign Room</label>\
-										<input type="text" name="e_stock" class="form-control" value="'+data[3]+'" readonly>\
+										<label>Room</label>\
+										<input type="text" name="e_rm" class="form-control" value="'+data[3]+'" readonly>\
 									</div>\
 									<div class="form-group">\
 										<label>Type</label>\
@@ -99,7 +99,7 @@ table_equipment.on('click', 'a.equip_details', function(e){
 									</div>\
 									<div class="form-group">\
 										<label>Status</label>\
-										<input type="text" name="e_type" class="form-control" readonly value="'+data[4]+'">\
+										<input type="text" name="e_status" class="form-control" readonly value="'+data[4]+'">\
 									</div>\
 									<div class="form-group">\
 										<button class="btn btn-block btn-success close-equipment">Close</button>\
@@ -234,7 +234,7 @@ $('.item-edit').click(function(){
 						</div>\
 						<div class="form-group">\
 						<label>Photo</label>\
-							<input type="file" name="e_photo" class="form-control" value="'+e_photo+'" required>\
+							<input type="file" name="e_photo" class="form-control" value="'+e_photo+'">\
 						</div>\
 						<label>Model</label>\
 							<input type="text" name="e_model" class="form-control" value="'+e_model+'" required>\
@@ -277,12 +277,12 @@ $('.item-edit').click(function(){
 							</select>\
 						</div>\
 						<div class="form-group">\
-						<label>Room</label>\
+							<label>Room</label>\
 							<input type="text" name="e_rm" class="form-control" value="'+e_rm+'" required>\
 						</div>\
 						<div class="form-group">\
 						<label>Apps Installed</label>\
-							<textarea name="e_apps" class="form-control">"'+e_apps+'"</textarea>\
+							<textarea name="e_apps" class="form-control">'+e_apps+'</textarea>\
 						</div>\
 						<hr/>\
                         <div class="form-group">\
