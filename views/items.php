@@ -177,24 +177,9 @@
 				</div>
 				<div class="form-group">
 					<label>Category</label>
-					<select name="e_category" class="form-control" required>
-						<option selected disabled>Please select category</option>
-						<option>Mouse</option>
-						<option>Keyboard</option>
-						<option>Monitor</option>
-						<option>Projector</option>
-						<option>Remote</option>
-						<option>DLP Screen</option>
-						<option>Aircon</option>
-						<option>TV</option>
-						<option>AVR</option>
-						<option>Extension</option>
-						<option>UPS</option>
-						<option>Router</option>
-						<option>Table</option>
-						<option>Chair</option>
-						<option>Switch Hub</option>
-					</select> 
+					<?php
+						include('category.php');
+					?>
 				</div>
 				<div class="form-group">
 					<label>Brand</label>

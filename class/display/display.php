@@ -8,6 +8,28 @@
 	*/
 	class display
 	{
+	// 	function display_category()
+	// 	{
+	// 		global $conn;
+	// 		$sql = $conn->prepare("SELECT * FROM category");
+	// 		$sql->execute(array(1));
+	// 		$count = $sql->rowCount();
+	// 		$fetch = $sql->fetchAll();
+	// 		if($count > 0){
+	// 			foreach ($fetch as $key => $value) {
+	// 				$catname = $value['name'];
+
+					
+	// 				$opts = '<option>'.$catname.'</option>';
+
+	// 				$data['data'][] = array($opts,$value['id']);
+	// 			}
+	// 			echo json_encode($data);
+	// 		}else{
+	// 			$data['data'] = array();
+	// 			echo json_encode($data);
+	// 		}
+	// 	}
 		
 		function display_room()
 		{
