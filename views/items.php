@@ -177,24 +177,9 @@
 				</div>
 				<div class="form-group">
 					<label>Category</label>
-					<select name="e_category" class="form-control" required>
-						<option selected disabled>Please select category</option>
-						<option>Mouse</option>
-						<option>Keyboard</option>
-						<option>Monitor</option>
-						<option>Projector</option>
-						<option>Remote</option>
-						<option>DLP Screen</option>
-						<option>Aircon</option>
-						<option>TV</option>
-						<option>AVR</option>
-						<option>Extension</option>
-						<option>UPS</option>
-						<option>Router</option>
-						<option>Table</option>
-						<option>Chair</option>
-						<option>Switch Hub</option>
-					</select> 
+					<?php
+						include('./components/cbo_category.php');
+					?>
 				</div>
 				<div class="form-group">
 					<label>Brand</label>
@@ -232,7 +217,9 @@
 				
 				<div class="form-group">
 					<label>Room</label>
-					<input type="text" name="e_rm" class="form-control" required>
+					<?php
+						include('./components/cbo_room.php');
+					?>
 				</div>
 				
 				 <div class="form-group">

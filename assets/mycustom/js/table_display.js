@@ -65,7 +65,7 @@ var table_room =  $('.table_room').DataTable({
 				exportOptions:{
 					columns: [0]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -177,7 +177,7 @@ var table_member =  $('.table_member').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4,5,6]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -261,7 +261,7 @@ var table_user =  $('.table_user').DataTable({
 				exportOptions:{
 					columns: [0,1,2]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -424,7 +424,7 @@ var table_equipment = $('.table_equipment').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -503,7 +503,7 @@ var table_inventory_new = $('.table_inventory_new').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -582,7 +582,7 @@ var table_inventory_old = $('.table_inventory_old').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -660,7 +660,7 @@ var table_inventory_lost = $('.table_inventory_lost').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -738,7 +738,7 @@ var table_inventory_damaged = $('.table_inventory_damaged').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -816,7 +816,7 @@ var table_inventory_pulledout = $('.table_inventory_pulledout').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -1166,7 +1166,7 @@ var tbl_borrow = $('.tbl_borrow').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -1253,7 +1253,7 @@ var tbl_return = $('.tbl_return').DataTable({
 				exportOptions:{
 					columns: [0,1,2]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -1336,7 +1336,7 @@ var tbl_pendingres = $('.tbl_pendingres').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -1415,7 +1415,7 @@ var tbl_reserved = $('.tbl_reserved').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -1494,7 +1494,7 @@ var tbluser_reservation = $('.tbluser_reservation').DataTable({
 				exportOptions:{
 					columns: [0,1,2]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -1566,7 +1566,7 @@ var table_history = $('.table_history').DataTable({
 				exportOptions:{
 					columns: [0,1,2]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -1650,7 +1650,7 @@ var table_dashboard = $('.table_dashboard').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4,5]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -1729,7 +1729,7 @@ function member_profile(id)
 					exportOptions:{
 						columns: [0,1,2,3]
 					},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -1803,7 +1803,7 @@ var tbluser_inbox = $('.tbluser_inbox').DataTable({
 					exportOptions:{
 						columns: [0,1,2]
 					},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',
@@ -1910,7 +1910,7 @@ var table_inventory_transfer = $('.table_inventory_transfer').DataTable({
 				exportOptions:{
 					columns: [0,1,2,3,4]
 				},
-				message: '<img src="https://lh5.googleusercontent.com/WU8qYX29x-fxrN7B9lrrVY8s6AOATdTOocOLXeZUSzVKQXJkICpaPT4hb1WHdXPy7Z86ol5b0C4Dg06zmYbfQHc=w16383" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+				message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
 							<h5>BACOLOD CITY COLLEGE</h5>\
 							<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
 							</center>',

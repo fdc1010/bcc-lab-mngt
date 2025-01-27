@@ -178,7 +178,8 @@ include 'header.php';
 					<select class="form-control" name="u_type" required="required">
 						<option disabled selected>Please select user type</option>
 						<option value="1">Administrator</option>
-						<option value="2">Staff/ Sudent Assistant</option>
+						<option value="2">Staff/ Faculty/ Sudent Assistant</option>
+						<option value="3">Sudent</option>
 					</select>
 				</div>
 				<div class="form-group">
