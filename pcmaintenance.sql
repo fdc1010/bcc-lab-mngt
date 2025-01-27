@@ -3,11 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 23, 2025 at 07:51 PM
+-- Generation Time: Jan 27, 2025 at 04:44 PM
 -- Server version: 8.0.40-0ubuntu0.24.04.1
 -- PHP Version: 8.2.24
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION,NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -58,6 +58,81 @@ INSERT INTO `borrow` (`id`, `date_borrow`, `borrowcode`, `member_id`, `item_id`,
 (10, '2017-02-21 11:51:30', 22120170451301, 8, 24, 22, 1, 7, 1, '0000-00-00 00:00:00', NULL),
 (11, '2017-02-21 11:52:38', 22120170452381, 6, 26, 24, 1, 7, 1, '0000-00-00 00:00:00', NULL),
 (12, '2017-02-21 18:48:52', 22120171148521, 4, 16, 18, 1, 7, 1, '0000-00-00 00:00:00', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `description` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Mouse', '', '2025-01-27 02:43:13', '2025-01-27 02:43:13'),
+(2, 'Keyboard', '', '2025-01-27 02:43:13', '2025-01-27 02:43:13'),
+(3, 'Monitor', '', '2025-01-27 02:43:39', '2025-01-27 02:43:39'),
+(4, 'Projector', '', '2025-01-27 02:43:39', '2025-01-27 02:43:39'),
+(5, 'Remote', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(6, 'DLP Screen', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(7, 'Aircon', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(8, 'TV', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(9, 'AVR', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(10, 'Extension', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(11, 'UPS', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(12, 'Router', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(13, 'Table', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(14, 'Chair', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(15, 'Switch Hub', '', '2025-01-27 02:45:48', '2025-01-27 02:45:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course`
+--
+
+CREATE TABLE `course` (
+  `id` int NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `department`
+--
+
+CREATE TABLE `department` (
+  `id` int NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `department`
+--
+
+INSERT INTO `department` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'BSOA', '', '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
+(2, 'BEED', '', '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
+(3, 'COED', '', '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
+(4, 'BSIT', '', '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
+(5, 'BSIS', '', '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
+(6, 'ACT', '', '2025-01-28 00:41:05', '2025-01-28 00:41:05');
 
 -- --------------------------------------------------------
 
@@ -122,7 +197,8 @@ INSERT INTO `history_logs` (`id`, `description`, `table_name`, `status_name`, `u
 (54, 'add new equipmentOM-130006A/K , Keyboard', 'equipment', '', 1, 1, '2017-02-21 11:28:04'),
 (55, 'add new equipment---- , Remote', 'equipment', '', 1, 1, '2017-02-21 11:31:19'),
 (56, 'add new equipment58E510 , TV', 'equipment', '', 1, 1, '2017-02-21 11:35:07'),
-(57, 'add new equipmenttest , Keyboard', 'equipment', NULL, 1, 1, '2025-01-24 02:35:39');
+(57, 'add new equipmenttest , Keyboard', 'equipment', NULL, 1, 1, '2025-01-24 02:35:39'),
+(58, 'add new equipmentTest2 , Monitor', 'equipment', NULL, 1, 1, '2025-01-26 18:34:45');
 
 -- --------------------------------------------------------
 
@@ -165,7 +241,8 @@ INSERT INTO `item` (`id`, `i_deviceID`, `i_model`, `i_category`, `i_brand`, `i_d
 (27, 'test', 'test', 'Keyboard', 'test', 'test', 'Non-consumable', 3, 1, 'test', 'test testt testestest ', NULL, NULL),
 (28, 'test', 'test', 'Keyboard', 'test', 'test', 'Non-consumable', 3, 1, 'test', 'test testt testestest ', NULL, NULL),
 (29, 'test', 'Test', 'Keyboard', 'Test', 'test', 'Non-consumable', 3, 1, 'Tes Test Rm', 'Test Testt Testestest 1', NULL, '1737661584.png'),
-(30, 'test', 'test', 'Keyboard', 'test', 'test', 'Non-consumable', 3, 1, 'test', 'test testt testestest ', NULL, NULL);
+(30, 'test', 'test', 'Keyboard', 'test', 'test', 'Non-consumable', 3, 1, 'test', 'test testt testestest ', NULL, NULL),
+(31, 'test2', 'Test2', 'Monitor', 'Test2', 'test2', 'Non-consumable', 4, 1, 'test2', 'MSOffice, windows 11, ...', NULL, '1737887685.png');
 
 -- --------------------------------------------------------
 
@@ -220,7 +297,8 @@ INSERT INTO `item_stock` (`id`, `item_id`, `room_id`, `items_stock`, `item_statu
 (25, 27, 14, 3, 1, 1),
 (26, 28, 14, 3, 1, 1),
 (27, 29, 14, 3, 1, 1),
-(28, 30, 14, 3, 1, 1);
+(28, 30, 14, 3, 1, 1),
+(29, 31, 14, 4, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -403,7 +481,7 @@ CREATE TABLE `user` (
   `name` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `type` int NOT NULL COMMENT '1=admin, 2=stafff',
+  `type` int NOT NULL COMMENT '1=admin, 2=staff/faculty, 3=student',
   `status` int NOT NULL DEFAULT '1' COMMENT '1=active, 2=inactive'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -431,6 +509,27 @@ ALTER TABLE `borrow`
   ADD KEY `member_id` (`member_id`),
   ADD KEY `equipment_id` (`item_id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
+-- Indexes for table `course`
+--
+ALTER TABLE `course`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
+-- Indexes for table `department`
+--
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
 
 --
 -- Indexes for table `equipment`
@@ -500,7 +599,8 @@ ALTER TABLE `reservation_status`
 -- Indexes for table `room`
 --
 ALTER TABLE `room`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `rm_name` (`rm_name`);
 
 --
 -- Indexes for table `room_equipment`
@@ -525,6 +625,24 @@ ALTER TABLE `borrow`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `course`
+--
+ALTER TABLE `course`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `department`
+--
+ALTER TABLE `department`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `equipment`
 --
 ALTER TABLE `equipment`
@@ -540,13 +658,13 @@ ALTER TABLE `equipment_inventory`
 -- AUTO_INCREMENT for table `history_logs`
 --
 ALTER TABLE `history_logs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `item_inventory`
@@ -558,7 +676,7 @@ ALTER TABLE `item_inventory`
 -- AUTO_INCREMENT for table `item_stock`
 --
 ALTER TABLE `item_stock`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `item_transfer`

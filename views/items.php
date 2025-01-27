@@ -178,7 +178,7 @@
 				<div class="form-group">
 					<label>Category</label>
 					<?php
-						include('category.php');
+						include('./components/cbo_category.php');
 					?>
 				</div>
 				<div class="form-group">
@@ -217,7 +217,9 @@
 				
 				<div class="form-group">
 					<label>Room</label>
-					<input type="text" name="e_rm" class="form-control" required>
+					<?php
+						include('./components/cbo_room.php');
+					?>
 				</div>
 				
 				 <div class="form-group">
