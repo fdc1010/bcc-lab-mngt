@@ -3,13 +3,12 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 27, 2025 at 04:44 PM
+-- Generation Time: Jan 29, 2025 at 07:27 AM
 -- Server version: 8.0.40-0ubuntu0.24.04.1
 -- PHP Version: 8.2.24
 
-SET SQL_MODE = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION,NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -264,8 +263,8 @@ CREATE TABLE `item_inventory` (
 --
 
 INSERT INTO `item_inventory` (`id`, `item_id`, `inventory_itemstock`, `inventory_status`, `item_remarks`, `date_change`) VALUES
-(8, 16, 2, 2, '', '2017-02-17 06:13:59'),
-(9, 16, 2, 2, 'test', '2017-02-17 06:16:07');
+(8, 16, 2, 2, '', '2017-02-17 14:13:59'),
+(9, 16, 2, 2, 'test', '2017-02-17 14:16:07');
 
 -- --------------------------------------------------------
 
