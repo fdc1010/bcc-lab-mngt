@@ -8,7 +8,7 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="dashboard"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Setting</li>
+				<li class="active">Department</li>
 			</ol>
 		</div>
 

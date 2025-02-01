@@ -448,7 +448,7 @@
 
 			$sql = $conn->prepare('SELECT *, SUM(item_inventory.inventory_itemstock) as inv_stock FROM item_inventory
 									LEFT JOIN item ON item.id = item_inventory.item_id 
-									WHERE item_inventory.inventory_status = ? GROUP BY item_inventory.inventory_status');
+									WHERE item_inventory.inventory_status = ? GROUP BY item_inventory.inventory_status, item_inventory.id');
 			$sql->execute(array(3));
 			$count = $sql->rowCount();
 			$fetch = $sql->fetchAll();
@@ -470,7 +470,7 @@
 
 			$sql = $conn->prepare('SELECT *, SUM(item_inventory.inventory_itemstock) as inv_stock FROM item_inventory
 									LEFT JOIN item ON item.id = item_inventory.item_id 
-									WHERE item_inventory.inventory_status = ? GROUP BY item_inventory.inventory_status');
+									WHERE item_inventory.inventory_status = ? GROUP BY item_inventory.inventory_status, item_inventory.id');
 			$sql->execute(array(4));
 			$count = $sql->rowCount();
 			$fetch = $sql->fetchAll();
@@ -518,7 +518,7 @@
 
 			$sql = $conn->prepare('SELECT * FROM item
 									LEFT JOIN item_stock ON item_stock.item_id = item.id
-									GROUP BY item.i_category');
+									GROUP BY item.i_category, item.id,item_stock.id');
 			$sql->execute();
 			$count = $sql->rowCount();
 			$fetch = $sql->fetchAll();
@@ -569,7 +569,7 @@
 								 	LEFT JOIN item ON item.id = item_stock.item_id
 								 	LEFT JOIN member ON member.id = borrow.member_id
 								 	LEFT JOIN room ON room.id = borrow.room_assigned
-								 	WHERE borrow.status = ? GROUP BY borrow.borrowcode');
+								 	WHERE borrow.status = ? GROUP BY borrow.borrowcode, borrow.id');
 			$sql->execute(array(1));
 			$fetch = $sql->fetchAll();
 			$count = $sql->rowCount();
@@ -599,7 +599,7 @@
 								 	LEFT JOIN item ON item.id = item_stock.item_id
 								 	LEFT JOIN member ON member.id = borrow.member_id
 								 	WHERE MONTH(borrow.date_borrow) = ".$_POST['month']." AND  YEAR(borrow.date_borrow) = ".$_POST['year']."
-								 	GROUP BY borrow.borrowcode");
+								 	GROUP BY borrow.borrowcode, borrow.id");
 			}
 			else if(isset($_POST['month']) && $_POST['month'] != "")
 			{
@@ -607,7 +607,7 @@
 								 	LEFT JOIN item_stock ON item_stock.id = borrow.stock_id
 								 	LEFT JOIN item ON item.id = item_stock.item_id
 								 	LEFT JOIN member ON member.id = borrow.member_id
-								 	WHERE MONTH(borrow.date_borrow) = ".$_POST['month']." GROUP BY borrow.borrowcode");
+								 	WHERE MONTH(borrow.date_borrow) = ".$_POST['month']." GROUP BY borrow.borrowcode, borrow.id");
 			}
 			else if(isset($_POST['year']) && $_POST['year'] != "")
 			{
@@ -616,15 +616,15 @@
 								 	LEFT JOIN item ON item.id = item_stock.item_id
 								 	LEFT JOIN member ON member.id = borrow.member_id
 								 	WHERE YEAR(borrow.date_borrow) = ".$_POST['year']."
-								 	GROUP BY borrow.borrowcode");
+								 	GROUP BY borrow.borrowcode, borrow.id");
 			}
 			else
 			{
-				$sql = $conn->prepare('	SELECT *, GROUP_CONCAT(item.i_deviceID, " - " ,item.i_category,  "<br/>") item_borrow FROM borrow
+				$sql = $conn->prepare("SELECT *, GROUP_CONCAT(item.i_deviceID, ' - ' ,item.i_category) item_borrow FROM borrow
 								 	LEFT JOIN item_stock ON item_stock.id = borrow.stock_id
 								 	LEFT JOIN item ON item.id = item_stock.item_id
 								 	LEFT JOIN member ON member.id = borrow.member_id
-								 	GROUP BY borrow.borrowcode');
+								 	GROUP BY borrow.borrowcode, borrow.id");
 			}
 
 			$sql->execute();
@@ -655,7 +655,7 @@
 								 	LEFT JOIN item ON item.id = item_stock.item_id
 								 	LEFT JOIN member ON member.id = reservation.member_id
 								 	LEFT JOIN room ON room.id = reservation.assign_room
-								 	WHERE reservation.status = ? GROUP BY reservation.reservation_code ORDER BY reservation.reserve_date ASC');
+								 	WHERE reservation.status = ? GROUP BY reservation.reservation_code,reservation.id ORDER BY reservation.reserve_date ASC');
 			$sql->execute(array(0));
 			$fetch = $sql->fetchAll();
 			$count = $sql->rowCount();
@@ -687,7 +687,7 @@
 								 	LEFT JOIN item ON item.id = item_stock.item_id
 								 	LEFT JOIN member ON member.id = reservation.member_id
 								 	LEFT JOIN room ON room.id = reservation.assign_room
-								 	WHERE reservation.status = ? GROUP BY reservation.reservation_code');
+								 	WHERE reservation.status = ? GROUP BY reservation.reservation_code,reservation.id');
 			$sql->execute(array(1));
 			$fetch = $sql->fetchAll();
 			$count = $sql->rowCount();
@@ -718,7 +718,7 @@
 								 	LEFT JOIN member ON member.id = reservation.member_id
 								 	LEFT JOIN room ON room.id = reservation.assign_room
 								 	LEFT JOIN reservation_status ON reservation_status.reservation_code = reservation.reservation_code
-								 	WHERE reservation.member_id = ? GROUP BY reservation.reservation_code');
+								 	WHERE reservation.member_id = ? GROUP BY reservation.reservation_code,reservation.id');
 			$sql->execute(array($session));
 			$fetch = $sql->fetchAll();
 			$count = $sql->rowCount();
@@ -749,7 +749,7 @@
 		{
 			global $conn;
 
-			$sql = $conn->prepare('SELECT *, COUNT(date_borrow) as numberborrow FROM borrow  GROUP BY CAST(date_borrow AS DATE) ');
+			$sql = $conn->prepare('SELECT *, COUNT(date_borrow) as numberborrow FROM borrow  GROUP BY CAST(date_borrow AS DATE), id');
 			$sql->execute();
 			$get = $sql->fetchAll();
 			$count = $sql->rowCount();
@@ -774,7 +774,7 @@
 		{
 			global $conn;
 
-			$sql = $conn->prepare('SELECT *, COUNT(date_borrow) as numberborrow FROM borrow WHERE status = ? GROUP BY CAST(date_borrow AS DATE) ');
+			$sql = $conn->prepare('SELECT *, COUNT(date_borrow) as numberborrow FROM borrow WHERE status = ? GROUP BY CAST(date_borrow AS DATE), id ');
 			$sql->execute(array(2));
 			$get = $sql->fetchAll();
 			$count = $sql->rowCount();
@@ -799,7 +799,7 @@
 		{
 			global $conn;
 
-			$sql = $conn->prepare('SELECT * FROM item GROUP BY i_category');
+			$sql = $conn->prepare('SELECT * FROM item GROUP BY i_category, id');
 			$sql->execute();
 			$get = $sql->fetchAll();
 			$count = $sql->rowCount();
@@ -976,7 +976,7 @@
 								 	LEFT JOIN item ON item.id = item_stock.item_id
 								 	LEFT JOIN member ON member.id = borrow.member_id
 								 	LEFT JOIN room ON room.id = borrow.room_assigned
-								 	WHERE borrow.member_id = ? GROUP BY borrow.borrowcode');
+								 	WHERE borrow.member_id = ? GROUP BY borrow.borrowcode, borrow.id');
 			$sql->execute(array($id));
 			$row = $sql->rowCount();
 			$fetch = $sql->fetchAll();
@@ -1122,7 +1122,7 @@
 								 	LEFT JOIN item ON item.id = item_stock.item_id
 								 	LEFT JOIN member ON member.id = reservation.member_id
 								 	LEFT JOIN room ON room.id = reservation.assign_room
-								 	WHERE reservation.status = ? GROUP BY reservation.reservation_code');
+								 	WHERE reservation.status = ? GROUP BY reservation.reservation_code, reservation.id');
 			$sql->execute(array(1));
 			$fetch = $sql->fetchAll();
 			$count = $sql->rowCount();
@@ -1154,7 +1154,7 @@
 		{
 			global $conn;
 
-			$sql = $conn->prepare('SELECT *, (SELECT COUNT(*) FROM borrow WHERE borrow.item_id = item.id AND borrow.status = ?) AS borrowCount FROM item GROUP BY i_category');
+			$sql = $conn->prepare('SELECT *, (SELECT COUNT(*) FROM borrow WHERE borrow.item_id = item.id AND borrow.status = ?) AS borrowCount FROM item GROUP BY i_category, id');
 			$sql->execute(array(1));
 			$get = $sql->fetchAll();
 			$count = $sql->rowCount();
