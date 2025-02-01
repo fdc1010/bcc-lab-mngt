@@ -620,7 +620,7 @@
 			}
 			else
 			{
-				$sql = $conn->prepare("SELECT *, GROUP_CONCAT(item.i_deviceID, ' - ' ,item.i_category) item_borrow FROM borrow
+				$sql = $conn->prepare("SELECT *, GROUP_CONCAT(item.i_deviceID, ' - ' ,item.i_category,  '<br/>') item_borrow FROM borrow
 								 	LEFT JOIN item_stock ON item_stock.id = borrow.stock_id
 								 	LEFT JOIN item ON item.id = item_stock.item_id
 								 	LEFT JOIN member ON member.id = borrow.member_id
