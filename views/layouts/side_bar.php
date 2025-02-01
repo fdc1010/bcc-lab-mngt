@@ -105,6 +105,22 @@
 					User
 				</a>
 			</li>
+			<li>
+				<a href="category">
+					<svg class="glyph stroked female user">
+						<use xlink:href="#stroked-female-user"/>
+					</svg>
+					Category
+				</a>
+			</li>
+			<li>
+				<a href="department">
+					<svg class="glyph stroked female user">
+						<use xlink:href="#stroked-female-user"/>
+					</svg>
+					Department
+				</a>
+			</li>
 			<?php 
 				}
 				($_SESSION['admin_type'] == 1) ? include('include_history.php') : false;
