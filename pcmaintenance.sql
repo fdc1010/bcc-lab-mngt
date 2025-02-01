@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 29, 2025 at 07:27 AM
--- Server version: 8.0.40-0ubuntu0.24.04.1
+-- Generation Time: Feb 01, 2025 at 09:01 PM
+-- Server version: 8.0.41-0ubuntu0.24.04.1
 -- PHP Version: 8.2.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -38,7 +38,7 @@ CREATE TABLE `borrow` (
   `status` int NOT NULL DEFAULT '1',
   `time_limit` datetime NOT NULL,
   `date_return` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `borrow`
@@ -67,10 +67,10 @@ INSERT INTO `borrow` (`id`, `date_borrow`, `borrowcode`, `member_id`, `item_id`,
 CREATE TABLE `category` (
   `id` int NOT NULL,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `description` text NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `category`
@@ -101,11 +101,11 @@ INSERT INTO `category` (`id`, `name`, `description`, `created_at`, `updated_at`)
 
 CREATE TABLE `course` (
   `id` int NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `description` text NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -115,11 +115,11 @@ CREATE TABLE `course` (
 
 CREATE TABLE `department` (
   `id` int NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `description` text NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `department`
@@ -141,17 +141,17 @@ INSERT INTO `department` (`id`, `name`, `description`, `created_at`, `updated_at
 
 CREATE TABLE `equipment` (
   `id` int NOT NULL,
-  `e_deviceid` varchar(50) NOT NULL,
-  `e_model` varchar(50) NOT NULL,
-  `e_category` varchar(50) NOT NULL,
-  `e_brand` varchar(50) NOT NULL,
-  `e_description` text NOT NULL,
+  `e_deviceid` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `e_model` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `e_category` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `e_brand` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `e_description` text CHARACTER SET latin1 NOT NULL,
   `e_stock` int NOT NULL,
   `e_stockleft` int NOT NULL,
-  `e_type` varchar(50) NOT NULL,
-  `e_status` varchar(50) NOT NULL,
+  `e_type` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `e_status` varchar(50) CHARACTER SET latin1 NOT NULL,
   `room_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -163,9 +163,9 @@ CREATE TABLE `equipment_inventory` (
   `id` int NOT NULL,
   `equipment_id` int NOT NULL,
   `qty` int NOT NULL,
-  `remarks` text NOT NULL,
-  `status` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `remarks` text CHARACTER SET latin1 NOT NULL,
+  `status` varchar(50) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -175,13 +175,13 @@ CREATE TABLE `equipment_inventory` (
 
 CREATE TABLE `history_logs` (
   `id` int NOT NULL,
-  `description` text NOT NULL,
-  `table_name` varchar(100) NOT NULL,
+  `description` text CHARACTER SET latin1 NOT NULL,
+  `table_name` varchar(100) CHARACTER SET latin1 NOT NULL,
   `status_name` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   `user_id` int NOT NULL,
   `user_type` int NOT NULL,
   `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `history_logs`
@@ -207,19 +207,19 @@ INSERT INTO `history_logs` (`id`, `description`, `table_name`, `status_name`, `u
 
 CREATE TABLE `item` (
   `id` int NOT NULL,
-  `i_deviceID` varchar(50) NOT NULL,
-  `i_model` varchar(50) NOT NULL,
-  `i_category` varchar(50) NOT NULL,
-  `i_brand` varchar(50) NOT NULL,
-  `i_description` text NOT NULL,
-  `i_type` varchar(50) NOT NULL,
+  `i_deviceID` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `i_model` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `i_category` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `i_brand` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `i_description` text CHARACTER SET latin1 NOT NULL,
+  `i_type` varchar(50) CHARACTER SET latin1 NOT NULL,
   `item_rawstock` int NOT NULL,
   `i_status` int NOT NULL DEFAULT '1',
-  `i_rm` varchar(50) NOT NULL,
+  `i_rm` varchar(50) CHARACTER SET latin1 NOT NULL,
   `i_apps` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `i_price` decimal(10,2) DEFAULT NULL,
   `i_photo` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `item`
@@ -254,9 +254,9 @@ CREATE TABLE `item_inventory` (
   `item_id` int NOT NULL,
   `inventory_itemstock` int NOT NULL,
   `inventory_status` int NOT NULL,
-  `item_remarks` text NOT NULL,
+  `item_remarks` text CHARACTER SET latin1 NOT NULL,
   `date_change` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `item_inventory`
@@ -279,7 +279,7 @@ CREATE TABLE `item_stock` (
   `items_stock` int NOT NULL,
   `item_status` int NOT NULL DEFAULT '1',
   `status` int NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `item_stock`
@@ -313,9 +313,9 @@ CREATE TABLE `item_transfer` (
   `t_quantity` int NOT NULL,
   `date_transfer` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `t_status` int NOT NULL DEFAULT '1',
-  `personincharge` varchar(50) NOT NULL,
+  `personincharge` varchar(50) CHARACTER SET latin1 NOT NULL,
   `userid` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -326,16 +326,16 @@ CREATE TABLE `item_transfer` (
 CREATE TABLE `member` (
   `id` int NOT NULL,
   `m_school_id` int NOT NULL,
-  `m_fname` varchar(50) NOT NULL,
-  `m_lname` varchar(50) NOT NULL,
-  `m_gender` varchar(10) NOT NULL,
-  `m_contact` varchar(15) NOT NULL,
-  `m_department` varchar(50) NOT NULL,
-  `m_year_section` varchar(20) NOT NULL,
-  `m_type` varchar(50) NOT NULL,
-  `m_password` varchar(50) NOT NULL,
+  `m_fname` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `m_lname` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `m_gender` varchar(10) CHARACTER SET latin1 NOT NULL,
+  `m_contact` varchar(15) CHARACTER SET latin1 NOT NULL,
+  `m_department` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `m_year_section` varchar(20) CHARACTER SET latin1 NOT NULL,
+  `m_type` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `m_password` varchar(50) CHARACTER SET latin1 NOT NULL,
   `m_status` int NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `member`
@@ -363,19 +363,19 @@ INSERT INTO `member` (`id`, `m_school_id`, `m_fname`, `m_lname`, `m_gender`, `m_
 
 CREATE TABLE `reservation` (
   `id` int NOT NULL,
-  `reservation_code` varchar(60) NOT NULL,
+  `reservation_code` varchar(60) CHARACTER SET latin1 NOT NULL,
   `member_id` int NOT NULL,
   `item_id` int NOT NULL,
   `stock_id` int NOT NULL,
   `room_id` int NOT NULL,
-  `reserve_date` varchar(50) DEFAULT NULL,
-  `reservation_time` varchar(20) NOT NULL,
+  `reserve_date` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  `reservation_time` varchar(20) CHARACTER SET latin1 NOT NULL,
   `time_limit` datetime NOT NULL,
   `assign_room` int NOT NULL,
   `status` int NOT NULL DEFAULT '0',
-  `remarks` text NOT NULL,
+  `remarks` text CHARACTER SET latin1 NOT NULL,
   `r_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -385,10 +385,10 @@ CREATE TABLE `reservation` (
 
 CREATE TABLE `reservation_status` (
   `id` int NOT NULL,
-  `reservation_code` varchar(50) NOT NULL,
-  `remark` text NOT NULL,
+  `reservation_code` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `remark` text CHARACTER SET latin1 NOT NULL,
   `res_status` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `reservation_status`
@@ -409,10 +409,10 @@ INSERT INTO `reservation_status` (`id`, `reservation_code`, `remark`, `res_statu
 
 CREATE TABLE `room` (
   `id` int NOT NULL,
-  `rm_name` varchar(50) NOT NULL,
+  `rm_name` varchar(50) CHARACTER SET latin1 NOT NULL,
   `rm_date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `rm_status` int NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `room`
@@ -444,7 +444,7 @@ CREATE TABLE `room_equipment` (
   `room_id` int NOT NULL,
   `re_quantity` int NOT NULL,
   `stats` int NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `room_equipment`
@@ -477,12 +477,12 @@ INSERT INTO `room_equipment` (`id`, `equipment_id`, `room_id`, `re_quantity`, `s
 
 CREATE TABLE `user` (
   `id` int NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `name` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `username` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(50) CHARACTER SET latin1 NOT NULL,
   `type` int NOT NULL COMMENT '1=admin, 2=staff/faculty, 3=student',
   `status` int NOT NULL DEFAULT '1' COMMENT '1=active, 2=inactive'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user`
