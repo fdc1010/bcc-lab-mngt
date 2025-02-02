@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 02, 2025 at 08:51 AM
+-- Generation Time: Feb 02, 2025 at 03:17 PM
 -- Server version: 8.0.41-0ubuntu0.24.04.1
 -- PHP Version: 8.2.24
 
@@ -215,7 +215,6 @@ CREATE TABLE `item` (
   `i_type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `item_rawstock` int NOT NULL,
   `i_status` int NOT NULL DEFAULT '1',
-  `i_rm` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `i_apps` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `i_price` decimal(10,2) DEFAULT NULL,
   `i_photo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
@@ -225,23 +224,23 @@ CREATE TABLE `item` (
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`id`, `i_deviceID`, `i_model`, `i_category`, `i_brand`, `i_description`, `i_type`, `item_rawstock`, `i_status`, `i_rm`, `i_apps`, `i_price`, `i_photo`) VALUES
-(16, '2009991', 'SM-9221', 'Mouse', 'Acer', 'Black', 'Consumable', 13, 1, 'rm1', 'ML', '599.00', '1487646917.jpg'),
-(17, '4103500582', '----', 'AVR', 'Monster', '220v, black', 'Consumable', 16, 1, '', 'Sir Cadagat', '1500.00', '1487647220.jpg'),
-(18, '----', 'H328C', 'Projector', 'epson', 'white', 'Consumable', 3, 1, '', 'Sir Cadagat', '2500.00', '1487647452.jpg'),
-(19, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, '', 'Sir Cadagat', '250.00', '1487647676.png'),
-(20, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, '', 'Sir Cadagat', '250.00', '1487647678.png'),
-(21, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, '', 'Sir Cadagat', '250.00', '1487647679.png'),
-(22, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, '', 'Sir Cadagat', '250.00', '1487647680.png'),
-(23, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, '', 'Sir Cadagat', '250.00', '1487647681.png'),
-(24, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, '', 'Sir Cadagat', '250.00', '1487647684.png'),
-(25, '----', '----', 'Remote', 'Haier', 'Slim Remote, white', 'Consumable', 10, 1, '', 'Sir Cadagat', '100.00', '1487647878.jpg'),
-(26, '37784471777', '58E510', 'TV', 'Skyworth', '58\" Smart Full HD, HDMI x3, VGA X1, LAN X2, USB X2, AV X3, Component in x2, Wifi, MHL Function, 1920x1080 screen resolution, 8w+8w audio output power, 100-240v~ 50/0Hz, 25.9 kg58\" Smart Full HD, HDMI x3, VGA X1, LAN X2, USB X2', 'Consumable', 5, 1, '', 'Sir Cadagat', '8000.00', '1487648107.jpg'),
-(27, 'test', 'test', 'Keyboard', 'test', 'test', 'Non-consumable', 3, 1, 'test', 'test testt testestest ', NULL, NULL),
-(28, 'test', 'test', 'Keyboard', 'test', 'test', 'Non-consumable', 3, 1, 'test', 'test testt testestest ', NULL, NULL),
-(29, 'test', 'Test', 'Keyboard', 'Test', 'test', 'Non-consumable', 3, 1, 'Tes Test Rm', 'Test Testt Testestest 1', NULL, '1737661584.png'),
-(30, 'test', 'test', 'Keyboard', 'test', 'test', 'Non-consumable', 3, 1, 'test', 'test testt testestest ', NULL, NULL),
-(31, 'test2', 'Test2', 'Monitor', 'Test2', 'test2', 'Non-consumable', 4, 1, 'test2', 'MSOffice, windows 11, ...', NULL, '1737887685.png');
+INSERT INTO `item` (`id`, `i_deviceID`, `i_model`, `i_category`, `i_brand`, `i_description`, `i_type`, `item_rawstock`, `i_status`, `i_apps`, `i_price`, `i_photo`) VALUES
+(16, '2009991', 'SM-9221', 'Mouse', 'Acer', 'Black', 'Consumable', 13, 1, 'ML', '599.00', '1487646917.jpg'),
+(17, '4103500582', '----', 'AVR', 'Monster', '220v, black', 'Consumable', 16, 1, 'Sir Cadagat', '1500.00', '1487647220.jpg'),
+(18, '----', 'H328C', 'Projector', 'epson', 'white', 'Consumable', 3, 1, 'Sir Cadagat', '2500.00', '1487647452.jpg'),
+(19, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647676.png'),
+(20, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647678.png'),
+(21, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647679.png'),
+(22, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647680.png'),
+(23, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647681.png'),
+(24, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647684.png'),
+(25, '----', '----', 'Remote', 'Haier', 'Slim Remote, white', 'Consumable', 10, 1, 'Sir Cadagat', '100.00', '1487647878.jpg'),
+(26, '37784471777', '58E510', 'TV', 'Skyworth', '58\" Smart Full HD, HDMI x3, VGA X1, LAN X2, USB X2, AV X3, Component in x2, Wifi, MHL Function, 1920x1080 screen resolution, 8w+8w audio output power, 100-240v~ 50/0Hz, 25.9 kg58\" Smart Full HD, HDMI x3, VGA X1, LAN X2, USB X2', 'Consumable', 5, 1, 'Sir Cadagat', '8000.00', '1487648107.jpg'),
+(27, 'test', 'test', 'Keyboard', 'test', 'test', 'Non-consumable', 3, 1, 'test testt testestest ', NULL, NULL),
+(28, 'test', 'test', 'Keyboard', 'test', 'test', 'Non-consumable', 3, 1, 'test testt testestest ', NULL, NULL),
+(29, 'test', 'Test', 'Keyboard', 'Test', 'test', 'Non-consumable', 3, 1, 'Test Testt Testestest 1', NULL, '1737661584.png'),
+(30, 'test', 'test', 'Keyboard', 'test', 'test', 'Non-consumable', 3, 1, 'test testt testestest ', NULL, NULL),
+(31, 'test2', 'Test2', 'Monitor', 'Test2', 'test2', 'Non-consumable', 4, 1, 'MSOffice, windows 11, ...', NULL, '1737887685.png');
 
 -- --------------------------------------------------------
 

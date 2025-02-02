@@ -56,6 +56,10 @@
 									<td class="e_brand"></td>
 								</tr>
 								<tr>
+									<td class="col-sm-6">Room</td>
+									<td class="e_rm"></td>
+								</tr>
+								<tr>
 									<td class="success col-sm-6">Description</td>
 									<td class="e_description"></td>
 								</tr>

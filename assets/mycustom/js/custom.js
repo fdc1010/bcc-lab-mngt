@@ -10,6 +10,21 @@ $(".cancel_room").click(function () {
     $('.room-side').toggle(effect, options, duration);
 });
 
+$(".add_category").click(function () {
+    $('.category-side').toggle(effect, options, duration);
+});
+
+$(".cancel_category").click(function () {
+    $('.category-side').toggle(effect, options, duration);
+});
+
+$(".add_department").click(function () {
+    $('.department-side').toggle(effect, options, duration);
+});
+
+$(".cancel_department").click(function () {
+    $('.department-side').toggle(effect, options, duration);
+});
 
 $(".add_member").click(function () {
     $('.member-side').toggle(effect, options, duration);
@@ -28,7 +43,6 @@ $(".add_user").click(function () {
 $(".cancel_user").click(function () {
     $('.user-side').toggle(effect, options, duration);
 });
-
 
 $('select[name="select_membertype"]').on('change keyup', function(){
     var a = $(this).val();
