@@ -62,6 +62,9 @@
 						<input type="number" name="id_number" class="form-control" autofocus="on">
 					</div>
 					<div class="form-group">
+						<input class="form-control" placeholder="Password" name="password" type="password" value="">
+					</div>
+					<div class="form-group">
 						<button class="btn btn-primary">Log in</button>
 						<br>
 						<a href="../"> Go to Admin Panel</a>
