@@ -341,7 +341,7 @@ $('.item-edit').click(function(){
 						</div>\
 						<div class="form-group">\
 							<label>Category</label>\
-							<select name="e_category" class="form-control e_category" required>\
+							<select name="e_category" class="form-control" id="e_category" required>\
 							</select> \
 						</div>\
 						<div class="form-group">\
@@ -361,7 +361,7 @@ $('.item-edit').click(function(){
 							</select>\
 						<div class="form-group">\
 							<label>Room</label>\
-							<select name="e_rm" class="form-control cbo_room" style="text-transform: capitalize;" required></select>\
+							<select name="e_rm" class="form-control" id="cbo_room" style="text-transform: capitalize;" required></select>\
 						</div>\
 						<div class="form-group">\
 						<label>Apps Installed</label>\
@@ -374,6 +374,8 @@ $('.item-edit').click(function(){
                         </div>\
                     </form>';
 
+	$('.equipment-forminfo').html(append);
+
 	$.ajax({
 		type: "POST",
 		url: "../class/display/display",
@@ -382,14 +384,15 @@ $('.item-edit').click(function(){
 	.done(function(response){
 		const result = JSON.parse(response);
 		const data = result.data;
-
-		data.forEach((elem) => {
-			var opt = '<option value="'+elem[0]+'">'+elem[1]+'</option>';
+		$('#cbo_room').empty();
+		var opt = '';
+		data.forEach((elem) => {			
 			if(e_rm_id == elem[0]){
-				opt = '<option value="'+elem[0]+'" selected>'+elem[1]+'</option>';
+			}else{
+				opt += '<option value="'+elem[0]+'">'+elem[1]+'</option>';
 			}
-			$('.cbo_room').append(opt);
 		});
+		$('#cbo_room').html(opt);
 	});
 
 	$.ajax({
@@ -400,17 +403,17 @@ $('.item-edit').click(function(){
 	.done(function(response){
 		const result = JSON.parse(response);
 		const data = result.data;
-		
-		data.forEach((elem) => {
-			var opt = '<option value="'+elem[0]+'">'+elem[1]+'</option>';
+		$('#e_category').empty();
+		var opt = '';
+		data.forEach((elem) => {			
 			if(e_category == elem[1]){
-				opt = '<option value="'+elem[0]+'" selected>'+elem[1]+'</option>';
+				opt += '<option value="'+elem[0]+'" selected>'+elem[1]+'</option>';
+			}else{
+				opt += '<option value="'+elem[0]+'">'+elem[1]+'</option>';
 			}
-			$('.e_category').append(opt);
 		});
+		$('#e_category').html(opt);
 	});
-
-	$('.equipment-forminfo').html(append);
 
 	$('.frm_edititem').submit(function(e){
 			
