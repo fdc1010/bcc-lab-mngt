@@ -8,28 +8,6 @@
 	*/
 	class display
 	{
-	// 	function display_category()
-	// 	{
-	// 		global $conn;
-	// 		$sql = $conn->prepare("SELECT * FROM category");
-	// 		$sql->execute(array(1));
-	// 		$count = $sql->rowCount();
-	// 		$fetch = $sql->fetchAll();
-	// 		if($count > 0){
-	// 			foreach ($fetch as $key => $value) {
-	// 				$catname = $value['name'];
-
-					
-	// 				$opts = '<option>'.$catname.'</option>';
-
-	// 				$data['data'][] = array($opts,$value['id']);
-	// 			}
-	// 			echo json_encode($data);
-	// 		}else{
-	// 			$data['data'] = array();
-	// 			echo json_encode($data);
-	// 		}
-	// 	}
 		
 		function display_room()
 		{
@@ -75,6 +53,93 @@
 			}
 		}
 
+		function display_category()
+		{
+			global $conn;
+			$sql = $conn->prepare("SELECT * FROM category");
+			$sql->execute();
+			$count = $sql->rowCount();
+			$fetch = $sql->fetchAll();
+			if($count > 0){
+				foreach ($fetch as $key => $value) {
+					$catname = $value['name'];
+
+					
+					$button1 = 	'<div class="btn-group">
+									<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Action <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="javascript:;" class="edit-room" ><i class="fa fa-edit"></i> Edit</a></li>
+										<li><a href="category_info?name='.$catname.'&id='.$value["id"].'"><i class="fa fa-search"></i> View Items</a></li>
+									</ul>
+								</div>';
+
+					$button2 = 	'<div class="btn-group">
+									<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Action <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="javascript:;" class="edit-room" ><i class="fa fa-edit"></i> Edit</a></li>
+									</ul>
+								</div>';
+
+					// <li><a href="room_info?name='.$myname.'&id='.$value["id"].'"><i class="fa fa-search"></i> View equipments</a></li>
+
+					$button =  $button1;
+
+					$data['data'][] = array(ucwords($value['name']),$button,$value['id']);
+				}
+				echo json_encode($data);
+			}else{
+				$data['data'] = array();
+				echo json_encode($data);
+			}
+		}
+
+		function display_department()
+		{
+			global $conn;
+			$sql = $conn->prepare("SELECT * FROM department");
+			$sql->execute();
+			$count = $sql->rowCount();
+			$fetch = $sql->fetchAll();
+			if($count > 0){
+				foreach ($fetch as $key => $value) {
+					$deptname = $value['name'];
+
+					
+					$button1 = 	'<div class="btn-group">
+									<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Action <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="javascript:;" class="edit-room" ><i class="fa fa-edit"></i> Edit</a></li>
+										<li><a href="category_info?name='.$deptname.'&id='.$value["id"].'"><i class="fa fa-search"></i> View Items</a></li>
+									</ul>
+								</div>';
+
+					$button2 = 	'<div class="btn-group">
+									<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Action <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="javascript:;" class="edit-room" ><i class="fa fa-edit"></i> Edit</a></li>
+									</ul>
+								</div>';
+
+					// <li><a href="room_info?name='.$myname.'&id='.$value["id"].'"><i class="fa fa-search"></i> View equipments</a></li>
+
+					$button =  $button1;
+
+					$data['data'][] = array(ucwords($value['name']),$button,$value['id']);
+				}
+				echo json_encode($data);
+			}else{
+				$data['data'] = array();
+				echo json_encode($data);
+			}
+		}
 
 		public function display_member()
 		{
@@ -188,6 +253,7 @@
 
 			$sql = $conn->prepare('SELECT *, item_stock.id as e_id FROM item_stock
 									LEFT JOIN item ON item.id = item_stock.item_id
+									LEFT JOIN room ON item_stock.room_id = room.id
 									WHERE item_stock.item_status = ? OR item_stock.item_status = ?');
 			$sql->execute(array(1,2));
 			$row = $sql->rowCount();
@@ -204,7 +270,7 @@
 								</div>';
 
 					$photo = ($value['i_photo'] == "") ? "../assets/noimagefound.jpg" : "../uploads/" . $value['i_photo'];
-					$data['data'][] = array('<img src="'.$photo.'" style="height=75px;width:75px;object-fit:cover" class="img-responsive" />',$value['i_model'],$value['i_category'],$value['i_description'],$value['item_rawstock'],$value['items_stock'],$str_status,$button,$value['i_brand']);
+					$data['data'][] = array('<img src="'.$photo.'" style="height=75px;width:75px;object-fit:cover" class="img-responsive" />',$value['i_model'],$value['i_category'],$value['i_description'],$value['item_rawstock'],$value['items_stock'],$str_status,$button,$value['i_brand'],ucwords($value['rm_name']),);
 				}
 				echo json_encode($data);
 			}else{
@@ -350,6 +416,59 @@
 			}
 		}
 
+		public function opt_categories()
+		{
+			global $conn;
+			$sql = $conn->prepare("SELECT * FROM category");
+			$sql->execute();
+			$count = $sql->rowCount();
+			$fetch = $sql->fetchAll();
+			if($count > 0){
+				foreach ($fetch as $key => $value) {
+					$data['data'][] = array($value['id'],$value['name']);
+				}
+				echo json_encode($data);
+			}else{
+				$data['data'] = array();
+				echo json_encode($data);
+			}
+		}
+
+		public function opt_rooms()
+		{
+			global $conn;
+			$sql = $conn->prepare("SELECT * FROM room");
+			$sql->execute();
+			$count = $sql->rowCount();
+			$fetch = $sql->fetchAll();
+			if($count > 0){
+				foreach ($fetch as $key => $value) {
+					$data['data'][] = array($value['id'],$value['rm_name']);
+				}
+				echo json_encode($data);
+			}else{
+				$data['data'] = array();
+				echo json_encode($data);
+			}
+		}
+
+		public function opt_departments()
+		{
+			global $conn;
+			$sql = $conn->prepare("SELECT * FROM department");
+			$sql->execute();
+			$count = $sql->rowCount();
+			$fetch = $sql->fetchAll();
+			if($count > 0){
+				foreach ($fetch as $key => $value) {					
+					$data['data'][] = array($value['id'],$value['name']);
+				}
+				echo json_encode($data);
+			}else{
+				$data['data'] = array();
+				echo json_encode($data);
+			}
+		}
 
 		public function display_equipmentinfo($id)
 		{
@@ -357,6 +476,7 @@
 
 			$sql = $conn->prepare("SELECT * FROM item_stock 
 								   LEFT JOIN item ON item.id = item_stock.item_id
+								   LEFT JOIN room ON room.id = item_stock.room_id
 								   WHERE item_stock.id = ?");
 			$sql->execute(array($id));
 			$fetch = $sql->fetchAll();
@@ -377,7 +497,8 @@
 									'e_type'=>ucwords($value['i_type']),
 									'e_status'=>$item_stat,
 									'e_model'=>ucwords($value['i_model']),
-									'e_rm'=>ucwords($value['i_rm']),
+									'e_rm'=>ucwords($value['rm_name']),
+									'e_rm_id'=>ucwords($value['room_id']),
 									'e_apps'=>$value['i_apps']
 									);
 				}
@@ -1179,6 +1300,18 @@
 
 	switch ($key) {
 
+		case 'opt_rooms';
+		$display->opt_rooms();
+		break;
+
+		case 'opt_categories';
+		$display->opt_categories();
+		break;
+
+		case 'opt_departments';
+		$display->opt_departments();
+		break;
+
 		case 'display_room';
 		$display->display_room();
 		break;
@@ -1351,6 +1484,14 @@
 
 		case 'count_due_borrow';
 		$display->count_due_borrow();
+		break;
+
+		case 'display_category';
+		$display->display_category();
+		break;
+
+		case 'display_department';
+		$display->display_department();
 		break;
 	}
 

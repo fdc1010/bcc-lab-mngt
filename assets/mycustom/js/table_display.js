@@ -75,6 +75,7 @@ var table_room =  $('.table_room').DataTable({
 			}
 		]
 });	
+
 var table_member =  $('.table_member').DataTable({
 	"ajax":
 		{
@@ -297,6 +298,10 @@ var table_equipment = $('.table_equipment').DataTable({
 			},
 			{
 				"data": [8],
+				"className": "text-left"
+			},
+			{
+				"data": [9],
 				"className": "text-left"
 			},
 			{
@@ -1920,6 +1925,162 @@ var table_inventory_transfer = $('.table_inventory_transfer').DataTable({
 			}
 		]
 });
+
+var table_category =  $('.table_category').DataTable({
+	"fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+								if ( aData[0] == "Room 310" )
+								{
+										$('td', nRow).css('background-color', 'skyblue');
+								}
+						},
+"ajax":
+{
+	"url": "../class/display/display",
+	"type": "POST",
+	"data": {
+		"key": "display_category"
+	}
+},
+"columns": 
+[
+	{
+		"data": [0],
+		"className": "text-center"
+	},
+	{
+		"data": [1],
+		"className": "text-center"
+	},
+	{
+		"data": [2],
+		"className": "text-center",
+		"visible": false 
+	}
+],
+dom: "Bfrtip",
+buttons: [
+	{
+		extend: "copy",
+		className: "btn-sm btn-success",
+		exportOptions:{
+			columns: [0]
+		}
+	},
+	{
+		extend: "csv",
+		className: "btn-sm btn-success",
+		exportOptions:{
+			columns: [0]
+		}
+	},
+	{
+		extend: "excel",
+		className: "btn-sm btn-success",
+		exportOptions:{
+			columns: [0]
+		}
+	},
+	{
+		extend: "pdfHtml5",
+		className: "btn-sm btn-success",
+		exportOptions:{
+			columns: [0]
+		}
+	},
+	{
+		extend: "print",
+		className: "btn-sm btn-success",
+		exportOptions:{
+			columns: [0]
+		},
+		message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+					<h5>BACOLOD CITY COLLEGE</h5>\
+					<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
+					</center>',
+		customize: function ( win ) {
+			$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
+		}
+	}
+]
+});	
+
+var table_department =  $('.table_department').DataTable({
+	"fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+								if ( aData[0] == "Room 310" )
+								{
+										$('td', nRow).css('background-color', 'skyblue');
+								}
+						},
+"ajax":
+{
+	"url": "../class/display/display",
+	"type": "POST",
+	"data": {
+		"key": "display_department"
+	}
+},
+"columns": 
+[
+	{
+		"data": [0],
+		"className": "text-center"
+	},
+	{
+		"data": [1],
+		"className": "text-center"
+	},
+	{
+		"data": [2],
+		"className": "text-center",
+		"visible": false 
+	}
+],
+dom: "Bfrtip",
+buttons: [
+	{
+		extend: "copy",
+		className: "btn-sm btn-success",
+		exportOptions:{
+			columns: [0]
+		}
+	},
+	{
+		extend: "csv",
+		className: "btn-sm btn-success",
+		exportOptions:{
+			columns: [0]
+		}
+	},
+	{
+		extend: "excel",
+		className: "btn-sm btn-success",
+		exportOptions:{
+			columns: [0]
+		}
+	},
+	{
+		extend: "pdfHtml5",
+		className: "btn-sm btn-success",
+		exportOptions:{
+			columns: [0]
+		}
+	},
+	{
+		extend: "print",
+		className: "btn-sm btn-success",
+		exportOptions:{
+			columns: [0]
+		},
+		message: '<img src="https://raw.githubusercontent.com/fdc1010/bcc-lab-mngt/refs/heads/master/assets/bccseal.png" height="100px" width="100px" style="position: absolute;top:0;left:80px;"><center><h4 style="margin-top:-40px;">REPUBLIC OF THE PHILIPPINES</h4>\
+					<h5>BACOLOD CITY COLLEGE</h5>\
+					<h6>DEPARTMENT OF INFORMATION SYSTEMS</h6>\
+					</center>',
+		customize: function ( win ) {
+			$(win.document.body).find( 'table' ).append('<br<br/><br><br><br><h4 class="">Noted by:</h4><br><br><br><br><br><h4 class="">Prepared by:</h4>');
+		}
+	}
+]
+});	
 
 $("#btnReloadTransferredList").on('click', function(){
 	table_inventory_transfer.ajax.reload();

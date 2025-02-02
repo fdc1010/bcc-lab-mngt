@@ -505,5 +505,73 @@ $('.add_faculty').click(function(){
 
 });
 
+$('.frm_addcategory').submit(function(e){
+	e.preventDefault();
+	var a = $('input[name="category_name"]');
+	
+	$.ajax({
+		type: "POST",
+		url: "../class/add/add",
+		data: {
+			name: a.val(),
+			key: 'add_category'
+		}
+	})
+	.done(function(data){
+		a.val('');
+		if(data == 1){
+			toastr.success("Category added.");
+			table_room.ajax.reload(null,false);
+			$('.cancel_category').click();
+		}
+		else if(data == 2){
+			toastr.warning("Category already exist");
+
+		}else if(data == 0){
+			toastr.error("Failed to add category");
+			$('.cancel_category').click();
+
+		}
+	})
+	.fail(function(data){
+		console.log(data);
+	});
+
+});
+
+$('.frm_adddepartment').submit(function(e){
+	e.preventDefault();
+	var a = $('input[name="department_name"]');
+	
+	$.ajax({
+		type: "POST",
+		url: "../class/add/add",
+		data: {
+			name: a.val(),
+			key: 'add_department'
+		}
+	})
+	.done(function(data){
+		a.val('');
+		if(data == 1){
+			toastr.success("Department added.");
+			table_room.ajax.reload(null,false);
+			$('.cancel_department').click();
+		}
+		else if(data == 2){
+			toastr.warning("Department already exist");
+
+		}else if(data == 0){
+			toastr.error("Failed to add department");
+			$('.cancel_department').click();
+
+		}
+	})
+	.fail(function(data){
+		console.log(data);
+	});
+
+});
+
 
 

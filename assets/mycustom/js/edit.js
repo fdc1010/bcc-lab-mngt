@@ -50,6 +50,109 @@ table_room.on('click', 'a.edit-room', function(e){
     });
 });
 
+// edit category
+table_category.on('click', 'a.edit-category', function(e){
+	e.preventDefault();
+	
+	$('.editcategory-side').toggle(effect, options, duration);
+	var data = table_category.row( $(this).parents('tr') ).data();
+	var category_name = data[0];
+	var category_id = data[2];
+	$('input[name="edit_category_name"]').val(category_name);
+	$('input[name="edit_category_id"]').val(category_id);
+
+	$('.cancel_editcategory').click(function(){
+			$('.editroom-side').toggle(effect, options, duration);
+	});
+
+	$('.frm_editcategory').submit(function(e){
+			e.preventDefault();
+			var a_name = $('input[name="edit_category_name"]').val();
+
+			if(a_name.toLowerCase() === category_name.toLowerCase()){
+				 
+				 toastr.warning('No changes made');
+
+			}else{
+			 
+				var token = $(this).serialize()+'&key=edit_category';
+				 $.ajax({
+					 type: "POST",
+					 url: "../class/edit/edit",
+					 data: token
+				 })
+				 .done(function(data){
+					 if(data == 1){
+						 toastr.success('Category successfully updated.');
+						 $('.editroom-side').toggle(effect, options, duration);
+						 table_category.ajax.reload(null,false);
+					 }else if(data == 2){
+						 toastr.error('Category name already exist');
+					 }else if(data == 0){
+						 toastr.error('Failed to add category');
+						 $('.editcategory-side').toggle(effect, options, duration);
+					 }
+				 })
+				 .fail(function(data){
+					 console.log(data);
+				 });
+
+			}
+
+	});
+});
+
+// edit department
+table_department.on('click', 'a.edit-department', function(e){
+	e.preventDefault();
+	
+	$('.editdepartment-side').toggle(effect, options, duration);
+	var data = table_department.row( $(this).parents('tr') ).data();
+	var department_name = data[0];
+	var department_id = data[2];
+	$('input[name="edit_department_name"]').val(department_name);
+	$('input[name="edit_department_id"]').val(department_id);
+
+	$('.cancel_editdepartment').click(function(){
+			$('.editdepartment-side').toggle(effect, options, duration);
+	});
+
+	$('.frm_editdepartment').submit(function(e){
+			e.preventDefault();
+			var a_name = $('input[name="edit_department_name"]').val();
+
+			if(a_name.toLowerCase() === department_name.toLowerCase()){
+				 
+				 toastr.warning('No changes made');
+
+			}else{
+			 
+				var token = $(this).serialize()+'&key=edit_department';
+				 $.ajax({
+					 type: "POST",
+					 url: "../class/edit/edit",
+					 data: token
+				 })
+				 .done(function(data){
+					 if(data == 1){
+						 toastr.success('Department successfully updated.');
+						 $('.editdepartment-side').toggle(effect, options, duration);
+						 table_department.ajax.reload(null,false);
+					 }else if(data == 2){
+						 toastr.error('Department name already exist');
+					 }else if(data == 0){
+						 toastr.error('Failed to add department');
+						 $('.editdepartment-side').toggle(effect, options, duration);
+					 }
+				 })
+				 .fail(function(data){
+					 console.log(data);
+				 });
+
+			}
+
+	});
+});
 
 table_equipment.on('click', 'a.equip_details', function(e){
 	e.preventDefault();
@@ -123,7 +226,7 @@ table_equipment.on('click', 'a.equip_moveroom', function(e){
 
 	$.ajax({
     type: "POST",
-    url: "../class/display/display",
+    url: "../views/display/display",
     data: {
         key: "display_roomtype1",
         id: id
@@ -184,7 +287,7 @@ table_equipment.on('click', 'a.equip_moveroom', function(e){
 		$.ajax({
 			type: "POST",
 			url: "../class/edit/edit",
-			data: vv
+			data: edit_moveroom
 		})
 		.done(function(data){
 			console.log(data);
@@ -202,9 +305,9 @@ table_equipment.on('click', 'a.equip_moveroom', function(e){
 });
 
 $('.item-edit').click(function(){
-    $('.equipment-info').toggle(effect, options, duration);
+  $('.equipment-info').toggle(effect, options, duration);
 
-   var deviceid = $('.e_id').text();
+  var deviceid = $('.e_id').text();
 	var e_category = $('.e_category').text();
 	var e_model = $('.e_model').text();
 	var e_brand = $('.e_brand').text();
@@ -215,18 +318,15 @@ $('.item-edit').click(function(){
 	var e_type = $('.e_type').text();
 	var e_status = $('.e_status').text();
 	var e_photo= $('.e_photo').text();
+	var e_rm_id= $('.e_rm_id').text();
 	var e_rm= $('.e_rm').text();
 	var e_apps= $('.e_apps').text();
-	// var e_mr= $('.e_mr').text();
-	// var e_price= $('.e_price').text();
 	
-	// console.log
 	var id = getequipmentid();
 
-
-     var append = '  <form class="frm_edititem">\
-                        <h4 class="alert bg-navbar-panel">Edit Item</h4>\
-                        <div class="form-group">\
+	var append = '  <form class="frm_edititem">\
+										<h4 class="alert bg-navbar-panel">Edit Item</h4>\
+										<div class="form-group">\
 						<label>Device ID</label>\
 							<input type="text" name="e_number" class="form-control" value="'+deviceid+'" required>\
 							<input type="hidden" name="e_id" value="'+id+'">\
@@ -241,23 +341,7 @@ $('.item-edit').click(function(){
 						</div>\
 						<div class="form-group">\
 							<label>Category</label>\
-							<select name="e_category" class="form-control" required>\
-								<option selected>'+e_category+'</option>\
-								<option>Mouse</option>\
-								<option>Keyboard</option>\
-								<option>Monitor</option>\
-								<option>Projector</option>\
-								<option>Remote</option>\
-								<option>DLP Screen</option>\
-								<option>Aircon</option>\
-								<option>TV</option>\
-								<option>AVR</option>\
-								<option>Extension</option>\
-								<option>UPS</option>\
-								<option>Router</option>\
-								<option>Table</option>\
-								<option>Chair</option>\
-								<option>Switch Hub</option>\
+							<select name="e_category" class="form-control e_category" required>\
 							</select> \
 						</div>\
 						<div class="form-group">\
@@ -275,10 +359,9 @@ $('.item-edit').click(function(){
 								<option>Consumable</option>\
 								<option>Non-consumable</option>\
 							</select>\
-						</div>\
 						<div class="form-group">\
 							<label>Room</label>\
-							<input type="text" name="e_rm" class="form-control" value="'+e_rm+'" required>\
+							<select name="e_rm" class="form-control cbo_room" style="text-transform: capitalize;" required></select>\
 						</div>\
 						<div class="form-group">\
 						<label>Apps Installed</label>\
@@ -291,38 +374,75 @@ $('.item-edit').click(function(){
                         </div>\
                     </form>';
 
-    $('.equipment-forminfo').html(append);
+	$.ajax({
+		type: "POST",
+		url: "../class/display/display",
+		data: { key: 'opt_rooms' }
+	})
+	.done(function(response){
+		const result = JSON.parse(response);
+		const data = result.data;
 
-    $('.frm_edititem').submit(function(e){
-    	e.preventDefault();
-	var _this = $(this);
-	var formData = new FormData();
-	var fileData = _this.find('input[type="file"]').prop('files')[0];
-	formData.append("e_photo",fileData);
-	var otherFormData = _this.serializeArray();
-	$.each(otherFormData,function(key,input){
-		formData.append(input.name,input.value);
+		data.forEach((elem) => {
+			var opt = '<option value="'+elem[0]+'">'+elem[1]+'</option>';
+			if(e_rm_id == elem[0]){
+				opt = '<option value="'+elem[0]+'" selected>'+elem[1]+'</option>';
+			}
+			$('.cbo_room').append(opt);
+		});
 	});
 
 	$.ajax({
 		type: "POST",
-		url: "../class/edit/edit",
-		data: formData,
-		async: true,
-		cache: false,
-		contentType: false,
-		processData: false 
+		url: "../class/display/display",
+		data: { key: 'opt_categories' }
 	})
-	.done(function(data){
-			toastr.success("Item successfully updated.");
-			table_equipment.ajax.reload(null,false);
-			$('.cancel-equipmentinfo').click();
-			$('.frm_edititem').find('input').val('');
-	})
-	.fail(function(data){
-		console.log(data);
+	.done(function(response){
+		const result = JSON.parse(response);
+		const data = result.data;
+		
+		data.forEach((elem) => {
+			var opt = '<option value="'+elem[0]+'">'+elem[1]+'</option>';
+			if(e_category == elem[1]){
+				opt = '<option value="'+elem[0]+'" selected>'+elem[1]+'</option>';
+			}
+			$('.e_category').append(opt);
+		});
 	});
 
+	$('.equipment-forminfo').html(append);
+
+	$('.frm_edititem').submit(function(e){
+			
+			e.preventDefault();
+
+			var _this = $(this);
+			var formData = new FormData();
+			var fileData = _this.find('input[type="file"]').prop('files')[0];
+			formData.append("e_photo",fileData);
+			var otherFormData = _this.serializeArray();
+			$.each(otherFormData,function(key,input){
+				formData.append(input.name,input.value);
+			});
+
+			$.ajax({
+				type: "POST",
+				url: "../class/edit/edit",
+				data: formData,
+				async: true,
+				cache: false,
+				contentType: false,
+				processData: false 
+			})
+			.done(function(data){
+					toastr.success("Item successfully updated.");
+					table_equipment.ajax.reload(null,false);
+					$('.cancel-equipmentinfo').click();
+					$('.frm_edititem').find('input').val('');
+			})
+			.fail(function(data){
+				console.log(data);
+			});
 
     });
 });

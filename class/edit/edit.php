@@ -10,7 +10,6 @@
 	*/
 	class edit
 	{
-		
 		public function edit_room($edit_rm_name,$edit_rm_id)
 		{
 			global $conn;
@@ -36,6 +35,82 @@
 				$sql = $conn->prepare('UPDATE room SET rm_name = ? WHERE id = ?;
 										INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)');
 				$sql->execute(array($edit_rm_name,$edit_rm_id,$h_desc,$h_tbl,$sessionid,$sessiontype));
+				$count = $sql->rowCount();
+				if($count > 0){
+					echo "1";
+				}else{
+					echo "0";
+				}
+
+			}else{
+				echo '2';
+			}
+
+		}
+		
+		public function edit_category($edit_category_name,$edit_category_id)
+		{
+			global $conn;
+
+			session_start();
+			$h_tbl = 'category';
+			$sessionid = $_SESSION['admin_id'];
+			$sessiontype = $_SESSION['admin_type'];
+
+			$ab = $conn->prepare("SELECT * FROM category WHERE id = ? ");
+			$ab->execute(array($edit_category_id));
+			$fetchab = $ab->fetch();
+
+			$check = $conn->prepare("SELECT * FROM category WHERE `name` = ? ");
+			$check->execute(array($edit_category_name));
+			$check_fetch = $check->fetch();
+			$check_row = $check->rowCount();
+
+			$h_desc = 'edit category '.$fetchab['category_name'].' to '. $edit_category_name;
+
+			if($check_row <= 0){
+
+				$sql = $conn->prepare('UPDATE category SET `name` = ? WHERE id = ?;
+										INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)');
+				$sql->execute(array($edit_category_name,$edit_category_id,$h_desc,$h_tbl,$sessionid,$sessiontype));
+				$count = $sql->rowCount();
+				if($count > 0){
+					echo "1";
+				}else{
+					echo "0";
+				}
+
+			}else{
+				echo '2';
+			}
+
+		}
+		
+		public function edit_department($edit_department_name,$edit_department_id)
+		{
+			global $conn;
+
+			session_start();
+			$h_tbl = 'department';
+			$sessionid = $_SESSION['admin_id'];
+			$sessiontype = $_SESSION['admin_type'];
+
+			$ab = $conn->prepare("SELECT * FROM department WHERE id = ? ");
+			$ab->execute(array($edit_department_id));
+			$fetchab = $ab->fetch();
+
+			$check = $conn->prepare("SELECT * FROM department WHERE `name` = ? ");
+			$check->execute(array($edit_department_name));
+			$check_fetch = $check->fetch();
+			$check_row = $check->rowCount();
+
+			$h_desc = 'edit department '.$fetchab['department_name'].' to '. $edit_department_name;
+
+			if($check_row <= 0){
+
+				$sql = $conn->prepare('UPDATE department SET `name` = ? WHERE id = ?;
+										INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)');
+				$sql->execute(array($edit_department_name,$edit_department_id,$h_desc,$h_tbl,$sessionid,$sessiontype));
 				$count = $sql->rowCount();
 				if($count > 0){
 					echo "1";
@@ -558,6 +633,18 @@
 		$edit_rm_name = strtolower($_POST['edit_rm_name']);
 		$edit_rm_id = $_POST['edit_rm_id'];
 		$edit->edit_room($edit_rm_name,$edit_rm_id);
+		break;
+
+		case 'edit_category';
+		$edit_category_name = strtolower($_POST['edit_category_name']);
+		$edit_category_id = $_POST['edit_category_id'];
+		$edit->edit_category($edit_category_name,$edit_category_id);
+		break;
+
+		case 'edit_department';
+		$edit_department_name = strtolower($_POST['edit_department_name']);
+		$edit_department_id = $_POST['edit_department_id'];
+		$edit->edit_department($edit_department_name,$edit_department_id);
 		break;
 
 		case 'edit_moveroom';

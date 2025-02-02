@@ -11,7 +11,7 @@
 			<li class="active">Category</li>
 		</ol>
 		<div class="breadcrumb">
-			<button class="btn btn-primary col-sm-offset-10 add_room">
+			<button class="btn btn-primary col-sm-offset-10 add_category">
 				<svg class="glyph stroked plus sign">
 					<use xlink:href="#stroked-plus-sign"/>
 				</svg>
@@ -23,7 +23,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<table class="table table-hover table_room">
+					<table class="table table-hover table_category">
 						<thead>
 							<tr>
 								<th>Category</th>
@@ -38,19 +38,19 @@
 	</div><!-- row -->
 </div>
 
-<div class="right-sidebar room-side">
+<div class="right-sidebar category-side">
 	<div class="sidebar-form">
 		<div class="container-fluid">
 			<form class="frm_addcategory">
 				<h4 class="alert bg-navbar-panel"><i class="fa fa-plus"></i> Add Category</h4>
 				<div class="form-group">
 					<label>Category</label>
-					<input type="number" name="category_name" min="0" class="form-control" autofocus autocomplete="off" required>
+					<input type="text" name="category_name" min="0" class="form-control" autofocus autocomplete="off" required>
 				</div>
 				<div class="form-group">
 					<div class="row">
 						<div class="col-md-6">
-							<button class="btn btn-danger btn-block cancel_room" type="button">
+							<button class="btn btn-danger btn-block cancel_category" type="button">
 								<i class="fa fa-remove"></i>
 								CANCEL
 							</button>
@@ -69,7 +69,7 @@
 	</div>
 </div>
 
-<div class="right-sidebar editroom-side">
+<div class="right-sidebar editcategory-side">
 	<div class="sidebar-form">
 		<div class="container-fluid">
 			<form class="frm_editcategory">
@@ -77,11 +77,11 @@
 				<div class="form-group">
 					<label>Category</label>
 					<input type="text" name="edit_category_name" class="form-control" autofocus required autocomplete="off" >
-					<input type="hidden" name="edit_cat_id">
+					<input type="hidden" name="edit_category_id">
 				</div>
 				<div class="form-group">
 					<div class="col-md-6">
-						<button class="btn btn-danger btn-block cancel_editroom" type="button">
+						<button class="btn btn-danger btn-block cancel_editcategory" type="button">
 							<i class="fa fa-remove"></i>
 							CANCEL
 						</button>

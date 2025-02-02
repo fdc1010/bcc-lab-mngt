@@ -11,7 +11,7 @@
 			<li class="active">Department</li>
 		</ol>
 		<div class="breadcrumb">
-			<button class="btn btn-primary col-sm-offset-10 add_room">
+			<button class="btn btn-primary col-sm-offset-10 add_department">
 				<svg class="glyph stroked plus sign">
 					<use xlink:href="#stroked-plus-sign"/>
 				</svg>
@@ -23,7 +23,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<table class="table table-hover table_room">
+					<table class="table table-hover table_department">
 						<thead>
 							<tr>
 								<th>Department</th>
@@ -38,7 +38,7 @@
 	</div><!-- row -->
 </div>
 
-<div class="right-sidebar room-side">
+<div class="right-sidebar department-side">
 	<div class="sidebar-form">
 		<div class="container-fluid">
 			<form class="frm_adddepartment">
@@ -50,7 +50,7 @@
 				<div class="form-group">
 					<div class="row">
 						<div class="col-md-6">
-							<button class="btn btn-danger btn-block cancel_room" type="button">
+							<button class="btn btn-danger btn-block cancel_department" type="button">
 								<i class="fa fa-remove"></i>
 								CANCEL
 							</button>
@@ -69,7 +69,7 @@
 	</div>
 </div>
 
-<div class="right-sidebar editroom-side">
+<div class="right-sidebar editdepartment-side">
 	<div class="sidebar-form">
 		<div class="container-fluid">
 			<form class="frm_editdepartment">
@@ -81,7 +81,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-md-6">
-						<button class="btn btn-danger btn-block cancel_editroom" type="button">
+						<button class="btn btn-danger btn-block cancel_editdepartment" type="button">
 							<i class="fa fa-remove"></i>
 							CANCEL
 						</button>

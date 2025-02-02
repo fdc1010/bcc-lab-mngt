@@ -96,10 +96,9 @@
 			$e_brand = $_POST['e_brand'];
 			$e_description = $_POST['e_description'];
 			$e_stock = $_POST['e_stock'];
-			$e_assigned = $_POST['e_assigned'];
+			$e_assigned = !empty($_POST['e_assigned']) ? $_POST['e_assigned'] : $_POST['e_rm'];
 			$e_type = $_POST['e_type'];
 			$e_status = $_POST['e_status'];
-			$e_rm = $_POST['e_rm'];
 			$e_apps = $_POST['e_apps'];
 			// $e_mr = $_POST['e_mr'];
 			// $e_price = $_POST['e_price'];
@@ -112,9 +111,9 @@
 
 
 
-			$sql = $conn->prepare('INSERT INTO item(i_deviceID, i_model, i_category, i_brand, i_description, i_type, item_rawstock, i_rm, i_apps)
+			$sql = $conn->prepare('INSERT INTO item(i_deviceID, i_model, i_category, i_brand, i_description, i_type, item_rawstock, i_apps)
 												VALUES(?,?,?,?,?,?,?,?,?)');
-			$sql->execute(array($e_number,$e_model,$e_category,$e_brand,$e_description,$e_type,$e_stock,$e_rm, $e_apps));
+			$sql->execute(array($e_number,$e_model,$e_category,$e_brand,$e_description,$e_type,$e_stock, $e_apps));
 			$row = $sql->rowCount();
 			$itemID = $conn->lastInsertId();
 
@@ -380,6 +379,64 @@
 					echo "2";
 				}
 		}
+		
+		public function add_category($name)
+		{
+			global $conn;
+
+			session_start();
+			$h_desc = 'add new category '. $name;
+			$h_tbl = 'category';
+			$sessionid = $_SESSION['admin_id'];
+			$sessiontype = $_SESSION['admin_type'];
+
+
+			$select = $conn->prepare("SELECT * FROM category WHERE `name` = ? "); 
+			$select->execute(array($name));
+			$row = $select->rowCount();
+			if($row <= 0){
+				$sql = $conn->prepare("INSERT INTO category(`name`) VALUES(?) ;
+									   INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)");
+				$sql->execute(array('category '.$name,1,$h_desc,$h_tbl,$sessionid,$sessiontype));
+				$count = $sql->rowCount();
+				if($count > 0){
+					echo "1"; 
+				}else{
+					echo "0";
+				}
+			}else{
+				echo "2";
+			}
+		}
+		
+		public function add_department($name)
+		{
+			global $conn;
+
+			session_start();
+			$h_desc = 'add new department '. $name;
+			$h_tbl = 'department';
+			$sessionid = $_SESSION['admin_id'];
+			$sessiontype = $_SESSION['admin_type'];
+
+
+			$select = $conn->prepare("SELECT * FROM department WHERE `name` = ? "); 
+			$select->execute(array($name));
+			$row = $select->rowCount();
+			if($row <= 0){
+				$sql = $conn->prepare("INSERT INTO department(`name`) VALUES(?) ;
+									   INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)");
+				$sql->execute(array('department '.$name,1,$h_desc,$h_tbl,$sessionid,$sessiontype));
+				$count = $sql->rowCount();
+				if($count > 0){
+					echo "1"; 
+				}else{
+					echo "0";
+				}
+			}else{
+				echo "2";
+			}
+		}
 
 	}
 
@@ -392,6 +449,16 @@
 		case 'add_room';
 		$name = strtolower($_POST['name']);
 		$add_function->add_room($name);
+		break;
+
+		case 'add_category';
+		$name = strtolower($_POST['name']);
+		$add_function->add_category($name);
+		break;
+
+		case 'add_department';
+		$name = strtolower($_POST['name']);
+		$add_function->add_department($name);
 		break;
 
 		case 'sign_student';

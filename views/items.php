@@ -29,6 +29,7 @@
 									<th>Model</th>
 									<th>Category</th>
 									<th>Brand</th>
+									<th>Room</th>
 									<th>Description</th>
 									<th>Quantity</th>
 									<th>Quantity Left</th>
@@ -81,11 +82,11 @@
 					<label>Quantity</label>
 					<input type="number" name="e_stock" class="form-control" min="1" required>
 				</div>
-				<div class="form-group hide">
+				<!-- <div class="form-group hide">
 					<label>Room</label>
 					<select name="e_assigned" class="form-control" required>
 					</select>
-				</div>
+				</div> -->
 				<div class="form-group">
 					<label>Type</label>
 					<select type="text" name="e_type" class="form-control" required>
