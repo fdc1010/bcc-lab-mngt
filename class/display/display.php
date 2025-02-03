@@ -64,29 +64,14 @@
 				foreach ($fetch as $key => $value) {
 					$catname = $value['name'];
 
-					
-					$button1 = 	'<div class="btn-group">
+					$button = 	'<div class="btn-group">
 									<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Action <span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu">
-										<li><a href="javascript:;" class="edit-room" ><i class="fa fa-edit"></i> Edit</a></li>
-										<li><a href="category_info?name='.$catname.'&id='.$value["id"].'"><i class="fa fa-search"></i> View Items</a></li>
+										<li><a href="javascript:;" class="edit-category" ><i class="fa fa-edit"></i> Edit</a></li>
 									</ul>
 								</div>';
-
-					$button2 = 	'<div class="btn-group">
-									<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Action <span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu">
-										<li><a href="javascript:;" class="edit-room" ><i class="fa fa-edit"></i> Edit</a></li>
-									</ul>
-								</div>';
-
-					// <li><a href="room_info?name='.$myname.'&id='.$value["id"].'"><i class="fa fa-search"></i> View equipments</a></li>
-
-					$button =  $button1;
 
 					$data['data'][] = array(ucwords($value['name']),$button,$value['id']);
 				}
@@ -108,29 +93,15 @@
 				foreach ($fetch as $key => $value) {
 					$deptname = $value['name'];
 
-					
-					$button1 = 	'<div class="btn-group">
+
+					$button = 	'<div class="btn-group">
 									<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Action <span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu">
-										<li><a href="javascript:;" class="edit-room" ><i class="fa fa-edit"></i> Edit</a></li>
-										<li><a href="category_info?name='.$deptname.'&id='.$value["id"].'"><i class="fa fa-search"></i> View Items</a></li>
+										<li><a href="javascript:;" class="edit-department" ><i class="fa fa-edit"></i> Edit</a></li>
 									</ul>
 								</div>';
-
-					$button2 = 	'<div class="btn-group">
-									<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Action <span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu">
-										<li><a href="javascript:;" class="edit-room" ><i class="fa fa-edit"></i> Edit</a></li>
-									</ul>
-								</div>';
-
-					// <li><a href="room_info?name='.$myname.'&id='.$value["id"].'"><i class="fa fa-search"></i> View equipments</a></li>
-
-					$button =  $button1;
 
 					$data['data'][] = array(ucwords($value['name']),$button,$value['id']);
 				}
