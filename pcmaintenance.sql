@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 02, 2025 at 03:17 PM
+-- Generation Time: Feb 03, 2025 at 06:04 AM
 -- Server version: 8.0.41-0ubuntu0.24.04.1
 -- PHP Version: 8.2.24
 
@@ -66,8 +66,9 @@ INSERT INTO `borrow` (`id`, `date_borrow`, `borrowcode`, `member_id`, `item_id`,
 
 CREATE TABLE `category` (
   `id` int NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -76,22 +77,22 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Mouse', '', '2025-01-27 02:43:13', '2025-01-27 02:43:13'),
-(2, 'Keyboard', '', '2025-01-27 02:43:13', '2025-01-27 02:43:13'),
-(3, 'Monitor', '', '2025-01-27 02:43:39', '2025-01-27 02:43:39'),
-(4, 'Projector', '', '2025-01-27 02:43:39', '2025-01-27 02:43:39'),
-(5, 'Remote', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
-(6, 'DLP Screen', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
-(7, 'Aircon', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
-(8, 'TV', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
-(9, 'AVR', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
-(10, 'Extension', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
-(11, 'UPS', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
-(12, 'Router', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
-(13, 'Table', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
-(14, 'Chair', '', '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
-(15, 'Switch Hub', '', '2025-01-27 02:45:48', '2025-01-27 02:45:48');
+INSERT INTO `category` (`id`, `category_name`, `description`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'mouse test', '', 1, '2025-01-27 02:43:13', '2025-01-27 02:43:13'),
+(2, 'Keyboard', '', 1, '2025-01-27 02:43:13', '2025-01-27 02:43:13'),
+(3, 'monitor 1', '', 1, '2025-01-27 02:43:39', '2025-01-27 02:43:39'),
+(4, 'Projector', '', 1, '2025-01-27 02:43:39', '2025-01-27 02:43:39'),
+(5, 'Remote', '', 1, '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(6, 'DLP Screen', '', 1, '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(7, 'aircon test1', '', 1, '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(8, 'TV', '', 1, '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(9, 'AVR', '', 1, '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(10, 'Extension', '', 1, '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(11, 'UPS', '', 1, '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(12, 'Router', '', 1, '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(13, 'Table', '', 1, '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(14, 'Chair', '', 1, '2025-01-27 02:45:30', '2025-01-27 02:45:30'),
+(15, 'Switch Hub', '', 1, '2025-01-27 02:45:48', '2025-01-27 02:45:48');
 
 -- --------------------------------------------------------
 
@@ -197,7 +198,23 @@ INSERT INTO `history_logs` (`id`, `description`, `table_name`, `status_name`, `u
 (55, 'add new equipment---- , Remote', 'equipment', '', 1, 1, '2017-02-21 11:31:19'),
 (56, 'add new equipment58E510 , TV', 'equipment', '', 1, 1, '2017-02-21 11:35:07'),
 (57, 'add new equipmenttest , Keyboard', 'equipment', NULL, 1, 1, '2025-01-24 02:35:39'),
-(58, 'add new equipmentTest2 , Monitor', 'equipment', NULL, 1, 1, '2025-01-26 18:34:45');
+(58, 'add new equipmentTest2 , Monitor', 'equipment', NULL, 1, 1, '2025-01-26 18:34:45'),
+(59, 'add userfred', 'user', NULL, 1, 1, '2025-02-03 00:35:35'),
+(60, 'edit client', 'client', NULL, 1, 1, '2025-02-03 00:38:02'),
+(61, 'edit client', 'client', NULL, 1, 1, '2025-02-03 00:38:35'),
+(62, 'edit client', 'client', NULL, 1, 1, '2025-02-03 00:49:31'),
+(63, 'edit client', 'client', NULL, 1, 1, '2025-02-03 00:49:43'),
+(64, 'edit category  to aircon test', 'category', NULL, 1, 1, '2025-02-03 11:05:59'),
+(65, 'edit category  to aircon', 'category', NULL, 1, 1, '2025-02-03 11:07:49'),
+(66, 'edit category  to aircon test', 'category', NULL, 1, 1, '2025-02-03 11:10:06'),
+(67, 'edit category  to aircon', 'category', NULL, 1, 1, '2025-02-03 11:10:17'),
+(68, 'edit category  to aircon test', 'category', NULL, 1, 1, '2025-02-03 12:03:08'),
+(69, 'edit category  to monitor 1', 'category', NULL, 1, 1, '2025-02-03 12:03:43'),
+(70, 'edit category  to mouse 2', 'category', NULL, 1, 1, '2025-02-03 12:03:51'),
+(71, 'edit category  to mouse', 'category', NULL, 1, 1, '2025-02-03 12:04:01'),
+(72, 'edit category  to mouse test', 'category', NULL, 1, 1, '2025-02-03 12:04:21'),
+(73, 'add new equipmenttesttest , Monitor 1', 'equipment', NULL, 1, 1, '2025-02-03 13:55:17'),
+(74, 'edit category aircon test to aircon test1', 'category', NULL, 1, 1, '2025-02-03 13:57:57');
 
 -- --------------------------------------------------------
 
@@ -210,6 +227,7 @@ CREATE TABLE `item` (
   `i_deviceID` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `i_model` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `i_category` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `i_category_id` int NOT NULL,
   `i_brand` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `i_description` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `i_type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -224,23 +242,28 @@ CREATE TABLE `item` (
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`id`, `i_deviceID`, `i_model`, `i_category`, `i_brand`, `i_description`, `i_type`, `item_rawstock`, `i_status`, `i_apps`, `i_price`, `i_photo`) VALUES
-(16, '2009991', 'SM-9221', 'Mouse', 'Acer', 'Black', 'Consumable', 13, 1, 'ML', '599.00', '1487646917.jpg'),
-(17, '4103500582', '----', 'AVR', 'Monster', '220v, black', 'Consumable', 16, 1, 'Sir Cadagat', '1500.00', '1487647220.jpg'),
-(18, '----', 'H328C', 'Projector', 'epson', 'white', 'Consumable', 3, 1, 'Sir Cadagat', '2500.00', '1487647452.jpg'),
-(19, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647676.png'),
-(20, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647678.png'),
-(21, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647679.png'),
-(22, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647680.png'),
-(23, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647681.png'),
-(24, '----', 'OM-130006A/K', 'Keyboard', 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647684.png'),
-(25, '----', '----', 'Remote', 'Haier', 'Slim Remote, white', 'Consumable', 10, 1, 'Sir Cadagat', '100.00', '1487647878.jpg'),
-(26, '37784471777', '58E510', 'TV', 'Skyworth', '58\" Smart Full HD, HDMI x3, VGA X1, LAN X2, USB X2, AV X3, Component in x2, Wifi, MHL Function, 1920x1080 screen resolution, 8w+8w audio output power, 100-240v~ 50/0Hz, 25.9 kg58\" Smart Full HD, HDMI x3, VGA X1, LAN X2, USB X2', 'Consumable', 5, 1, 'Sir Cadagat', '8000.00', '1487648107.jpg'),
-(27, 'test', 'test', 'Keyboard', 'test', 'test', 'Non-consumable', 3, 1, 'test testt testestest ', NULL, NULL),
-(28, 'test', 'test', 'Keyboard', 'test', 'test', 'Non-consumable', 3, 1, 'test testt testestest ', NULL, NULL),
-(29, 'test', 'Test', 'Keyboard', 'Test', 'test', 'Non-consumable', 3, 1, 'Test Testt Testestest 1', NULL, '1737661584.png'),
-(30, 'test', 'test', 'Keyboard', 'test', 'test', 'Non-consumable', 3, 1, 'test testt testestest ', NULL, NULL),
-(31, 'test2', 'Test2', 'Monitor', 'Test2', 'test2', 'Non-consumable', 4, 1, 'MSOffice, windows 11, ...', NULL, '1737887685.png');
+INSERT INTO `item` (`id`, `i_deviceID`, `i_model`, `i_category`, `i_category_id`, `i_brand`, `i_description`, `i_type`, `item_rawstock`, `i_status`, `i_apps`, `i_price`, `i_photo`) VALUES
+(16, '2009991', 'SM-9221', 'mouse test', 1, 'Acer', 'Black', 'Consumable', 13, 1, 'ML', '599.00', '1487646917.jpg'),
+(17, '4103500582', '----', 'AVR', 9, 'Monster', '220v, black', 'Consumable', 16, 1, 'Sir Cadagat', '1500.00', '1487647220.jpg'),
+(18, '----', 'H328C', 'Projector', 4, 'epson', 'white', 'Consumable', 3, 1, 'Sir Cadagat', '2500.00', '1487647452.jpg'),
+(19, '----', 'OM-130006A/K', 'Keyboard', 2, 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647676.png'),
+(20, '----', 'OM-130006A/K', 'Keyboard', 2, 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647678.png'),
+(21, '----', 'OM-130006A/K', 'Keyboard', 2, 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647679.png'),
+(22, '----', 'OM-130006A/K', 'Keyboard', 2, 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647680.png'),
+(23, '----', 'OM-130006A/K', 'Keyboard', 2, 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647681.png'),
+(24, '----', 'OM-130006A/K', 'Keyboard', 2, 'Acer', 'Slim Compact Keyboard, Black USB Wired, 98 Keys', 'Consumable', 60, 1, 'Sir Cadagat', '250.00', '1487647684.png'),
+(25, '----', '----', 'Remote', 5, 'Haier', 'Slim Remote, white', 'Consumable', 10, 1, 'Sir Cadagat', '100.00', '1487647878.jpg'),
+(26, '37784471777', '58E510', 'TV', 8, 'Skyworth', '58\" Smart Full HD, HDMI x3, VGA X1, LAN X2, USB X2, AV X3, Component in x2, Wifi, MHL Function, 1920x1080 screen resolution, 8w+8w audio output power, 100-240v~ 50/0Hz, 25.9 kg58\" Smart Full HD, HDMI x3, VGA X1, LAN X2, USB X2', 'Consumable', 5, 1, 'Sir Cadagat', '8000.00', '1487648107.jpg'),
+(27, 'test', 'test', 'Keyboard', 2, 'test', 'test', 'Non-consumable', 3, 1, 'test testt testestest ', NULL, NULL),
+(28, 'test', 'test', 'Keyboard', 2, 'test', 'test', 'Non-consumable', 3, 1, 'test testt testestest ', NULL, NULL),
+(29, 'test', 'Test', 'Keyboard', 2, 'Test', 'test', 'Non-consumable', 3, 1, 'Test Testt Testestest 1', NULL, '1737661584.png'),
+(30, 'test', 'Test', 'aircon test', 7, 'Test', 'test', 'Non-consumable', 3, 1, 'test testt testestest ', NULL, '1738562157.png'),
+(31, 'test2', 'Test2', 'Monitor', 3, 'Test2', 'test2', 'Non-consumable', 4, 1, 'MSOffice, windows 11, ...', NULL, '1737887685.png'),
+(32, '43434', 'test', 'Monitor 1', 3, 'test', 'test', 'Consumable', 2, 1, 'test', NULL, '1738561226.png'),
+(33, '5353535', 'testtest', 'Remote', 5, 'testtest', 'testtest', 'Consumable', 2, 1, 'test', NULL, '1738561348.png'),
+(34, '5353535', 'testtest', 'Remote', 5, 'testtest', 'testtest', 'Consumable', 2, 1, 'test', NULL, '1738561592.png'),
+(35, 'testtest', 'testtest', 'Monitor 1', 3, 'testtest', 'testtest', 'Consumable', 2, 1, 'testtest', NULL, '1738562019.png'),
+(36, 'testtest', 'testtest', 'Monitor 1', 3, 'testtest', 'testtest', 'Consumable', 2, 1, 'testtest', NULL, '1738562117.png');
 
 -- --------------------------------------------------------
 
@@ -296,7 +319,8 @@ INSERT INTO `item_stock` (`id`, `item_id`, `room_id`, `items_stock`, `item_statu
 (26, 28, 14, 3, 1, 1),
 (27, 29, 14, 3, 1, 1),
 (28, 30, 14, 3, 1, 1),
-(29, 31, 14, 4, 1, 1);
+(29, 31, 14, 4, 1, 1),
+(30, 36, 2, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -493,7 +517,8 @@ INSERT INTO `user` (`id`, `name`, `username`, `password`, `type`, `status`) VALU
 (3, 'Juan', 'juan', 'f5737d25829e95b9c234b7fa06af8736', 2, 1),
 (4, 'Maria Cruz', 'maria', '263bce650e68ab4e23f28263760b9fa5', 2, 1),
 (5, 'Pedro Jose', 'pedro', 'd3ce9efea6244baa7bf718f12dd0c331', 2, 1),
-(6, 'Administrator 2', 'admin2', 'c84258e9c39059a89ab77d846ddab909', 1, 1);
+(6, 'Administrator 2', 'admin2', 'c84258e9c39059a89ab77d846ddab909', 1, 1),
+(7, 'fred', 'franklin', '255e720be8e84d8c92f117a67821f95d', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -513,7 +538,7 @@ ALTER TABLE `borrow`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
+  ADD UNIQUE KEY `name` (`category_name`);
 
 --
 -- Indexes for table `course`
@@ -656,13 +681,13 @@ ALTER TABLE `equipment_inventory`
 -- AUTO_INCREMENT for table `history_logs`
 --
 ALTER TABLE `history_logs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `item_inventory`
@@ -674,7 +699,7 @@ ALTER TABLE `item_inventory`
 -- AUTO_INCREMENT for table `item_stock`
 --
 ALTER TABLE `item_stock`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `item_transfer`
@@ -716,7 +741,7 @@ ALTER TABLE `room_equipment`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
