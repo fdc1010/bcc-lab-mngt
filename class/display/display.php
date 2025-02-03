@@ -392,7 +392,7 @@
 		public function opt_categories()
 		{
 			global $conn;
-			$sql = $conn->prepare("SELECT * FROM category");
+			$sql = $conn->prepare("SELECT * FROM category WHERE status = 1");
 			$sql->execute();
 			$count = $sql->rowCount();
 			$fetch = $sql->fetchAll();
