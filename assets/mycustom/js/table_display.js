@@ -293,8 +293,11 @@ var table_equipment = $('.table_equipment').DataTable({
 				"className": "text-left"
 			},
 			{
-				"data": [2],
-				"className": "text-left"
+				"data": [11],
+				"className": "text-left",
+				"render": function(data) {
+					return "<span style='text-transform: capitalize;'>"+data+"</span>";
+				}
 			},
 			{
 				"data": [8],

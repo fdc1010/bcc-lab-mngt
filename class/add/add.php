@@ -86,20 +86,20 @@
 
 		}
 
-		public function add_equipment()
+		public function add_equipment($e_number,$e_model,$e_category,$e_brand,$e_description,$e_stock,$e_assigned,$e_type,$e_status,$e_apps)
 		{
 			global $conn;
 
-			$e_model = $_POST['e_model'];
-			$e_number = $_POST['e_number'];
-			$e_category = $_POST['e_category'];
-			$e_brand = $_POST['e_brand'];
-			$e_description = $_POST['e_description'];
-			$e_stock = $_POST['e_stock'];
-			$e_assigned = !empty($_POST['e_assigned']) ? $_POST['e_assigned'] : $_POST['e_rm'];
-			$e_type = $_POST['e_type'];
-			$e_status = $_POST['e_status'];
-			$e_apps = $_POST['e_apps'];
+			// $e_model = $_POST['e_model'];
+			// $e_number = $_POST['e_number'];
+			// $e_category = $_POST['e_category'];
+			// $e_brand = $_POST['e_brand'];
+			// $e_description = $_POST['e_description'];
+			// $e_stock = $_POST['e_stock'];
+			// $e_assigned = !empty($_POST['e_assigned']) ? $_POST['e_assigned'] : $_POST['e_rm'];
+			// $e_type = $_POST['e_type'];
+			// $e_status = $_POST['e_status'];
+			// $e_apps = $_POST['e_apps'];
 			// $e_mr = $_POST['e_mr'];
 			// $e_price = $_POST['e_price'];
 
@@ -109,11 +109,15 @@
 			$sessionid = $_SESSION['admin_id'];
 			$sessiontype = $_SESSION['admin_type'];
 
+			$sql = $conn->prepare('SELECT * FROM category WHERE category_name = ?');
+			$sql->execute(array($e_category));
+			$row = $sql->rowCount();
+			$fetch = $sql->fetch();
+			$e_category_id = $fetch['id'];
 
-
-			$sql = $conn->prepare('INSERT INTO item(i_deviceID, i_model, i_category, i_brand, i_description, i_type, item_rawstock, i_apps)
+			$sql = $conn->prepare('INSERT INTO item(i_deviceID, i_model, i_category, i_category_id, i_brand, i_description, i_type, item_rawstock, i_apps)
 												VALUES(?,?,?,?,?,?,?,?,?)');
-			$sql->execute(array($e_number,$e_model,$e_category,$e_brand,$e_description,$e_type,$e_stock, $e_apps));
+			$sql->execute(array($e_number,$e_model,$e_category,$e_category_id,$e_brand,$e_description,$e_type,$e_stock, $e_apps));
 			$row = $sql->rowCount();
 			$itemID = $conn->lastInsertId();
 
@@ -130,11 +134,17 @@
 				$sql = $conn->prepare('UPDATE item SET i_photo = ? WHERE id = ?');
 				$sql->execute(array($file,$itemID));
 			endif;
-				
+			
+			$sqlc = $conn->prepare('SELECT * FROM room WHERE rm_name LIKE ?');
+			$sqlc->execute(array($e_assigned));
+			$rowc = $sqlc->rowCount();
+			$fetchc = $sqlc->fetch();
+			$rm_id = is_numeric($e_assigned) ? $e_assigned : $fetchc['id'];
+
 			if($row > 0){
 				$item = $conn->prepare('INSERT INTO item_stock (item_id, room_id, items_stock, item_status)
 										VALUES(?,?,?,?)');
-				$item->execute(array($itemID,$e_assigned,$e_stock,$e_status));
+				$item->execute(array($itemID,$rm_id,$e_stock,$e_status));
 				$countitem = $item->rowCount();
 					if($countitem > 0){
 						$history = $conn->prepare('INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)');
@@ -391,11 +401,11 @@
 			$sessiontype = $_SESSION['admin_type'];
 
 
-			$select = $conn->prepare("SELECT * FROM category WHERE `name` = ? "); 
+			$select = $conn->prepare("SELECT * FROM category WHERE `category_name` = ? "); 
 			$select->execute(array($name));
 			$row = $select->rowCount();
 			if($row <= 0){
-				$sql = $conn->prepare("INSERT INTO category(`name`) VALUES(?) ;
+				$sql = $conn->prepare("INSERT INTO category(`category_name`) VALUES(?) ;
 									   INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)");
 				$sql->execute(array('category '.$name,1,$h_desc,$h_tbl,$sessionid,$sessiontype));
 				$count = $sql->rowCount();
@@ -495,12 +505,12 @@
 		$e_brand = trim($_POST['e_brand']);
 		$e_description = trim($_POST['e_description']);
 		$e_stock = trim($_POST['e_stock']);
-		$e_assigned = trim($_POST['e_assigned']);
+		$e_assigned = !empty($_POST['e_assigned']) ? $_POST['e_assigned'] : $_POST['e_rm'];;
 		$e_type = trim($_POST['e_type']);
 		$e_status = trim($_POST['e_status']);
 		$e_rm = trim($_POST['e_rm']);
 		$e_apps = trim($_POST['e_apps']);
-		$add_function->add_equipment($e_number,$e_model,$e_category,$e_brand,$e_description,$e_stock,$e_assigned,$e_type,$e_status,$e_rm,$e_apps);
+		$add_function->add_equipment($e_number,$e_model,$e_category,$e_brand,$e_description,$e_stock,$e_assigned,$e_type,$e_status,$e_apps);
 		break;
 
 		case 'add_member';

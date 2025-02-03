@@ -61,7 +61,7 @@
 			$ab->execute(array($edit_category_id));
 			$fetchab = $ab->fetch();
 
-			$check = $conn->prepare("SELECT * FROM category WHERE `name` = ? ");
+			$check = $conn->prepare("SELECT * FROM category WHERE `category_name` = ? ");
 			$check->execute(array($edit_category_name));
 			$check_fetch = $check->fetch();
 			$check_row = $check->rowCount();
@@ -70,7 +70,7 @@
 
 			if($check_row <= 0){
 
-				$sql = $conn->prepare('UPDATE category SET `name` = ? WHERE id = ?;
+				$sql = $conn->prepare('UPDATE category SET `category_name` = ? WHERE id = ?;
 										INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)');
 				$sql->execute(array($edit_category_name,$edit_category_id,$h_desc,$h_tbl,$sessionid,$sessiontype));
 				$count = $sql->rowCount();
@@ -306,9 +306,15 @@
 			$fetch = $sql->fetch();
 			$itemID = $fetch['item_id'];
 
+			$sqlc = $conn->prepare('SELECT * FROM category WHERE category_name LIKE ?');
+			$sqlc->execute(array($e_category));
+			$rowc = $sqlc->rowCount();
+			$fetchc = $sqlc->fetch();
+			$e_category_id = $fetchc['id'];
+
 			if($row > 0){
-				$updateitem = $conn->prepare('UPDATE item SET i_deviceID = ?, i_model = ?, i_category = ?, i_brand = ?, i_description = ?, i_type = ?, i_rm = ?, i_apps = ? WHERE id = ?');
-				$updateitem->execute(array($e_number,$e_model,$e_category,$e_brand,$e_description,$e_type,$e_rm,$e_apps,$itemID));
+				$updateitem = $conn->prepare('UPDATE item SET i_deviceID = ?, i_model = ?, i_category = ?, i_category_id = ?, i_brand = ?, i_description = ?, i_type = ?, i_apps = ? WHERE id = ?');
+				$updateitem->execute(array($e_number,$e_model,$e_category,$e_category_id,$e_brand,$e_description,$e_type,$e_apps,$itemID));
 				$updateCount = $updateitem->rowCount();
 			
 			$imageName = $_FILES['e_photo']['name'];
