@@ -11,7 +11,7 @@
     if($count > 0){
       $opts = "";
       foreach ($fetch as $key => $value) {
-        $name = ucwords($value['name']);
+        $name = ucwords($value['department_name']);
 
         
         $opts .= '<option>'.$name.'</option>\n';
