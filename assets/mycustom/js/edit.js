@@ -62,42 +62,32 @@ table_category.on('click', 'a.edit-category', function(e){
 	$('input[name="edit_category_id"]').val(category_id);
 
 	$('.cancel_editcategory').click(function(){
-			$('.editroom-side').toggle(effect, options, duration);
+			$('.editcategory-side').toggle(effect, options, duration);
 	});
 
 	$('.frm_editcategory').submit(function(e){
 			e.preventDefault();
 			var a_name = $('input[name="edit_category_name"]').val();
 
-			if(a_name.toLowerCase() === category_name.toLowerCase()){
-				 
-				 toastr.warning('No changes made');
-
-			}else{
-			 
-				var token = $(this).serialize()+'&key=edit_category';
-				 $.ajax({
-					 type: "POST",
-					 url: "../class/edit/edit",
-					 data: token
-				 })
-				 .done(function(data){
-					 if(data == 1){
-						 toastr.success('Category successfully updated.');
-						 $('.editroom-side').toggle(effect, options, duration);
-						 table_category.ajax.reload(null,false);
-					 }else if(data == 2){
-						 toastr.error('Category name already exist');
-					 }else if(data == 0){
-						 toastr.error('Failed to add category');
-						 $('.editcategory-side').toggle(effect, options, duration);
-					 }
-				 })
-				 .fail(function(data){
-					 console.log(data);
-				 });
-
-			}
+			var token = $(this).serialize()+'&key=edit_category';
+			$.ajax({
+				type: "POST",
+				url: "../class/edit/edit",
+				data: token
+			})
+			.done(function(data){
+				if(data == 1){
+					toastr.success('Category successfully updated.');
+					$('.editcategory-side').toggle(effect, options, duration);
+					table_category.ajax.reload(null,false);
+				}else if(data == 0) {
+					toastr.error('Failed to save category');
+					$('.editcategory-side').toggle(effect, options, duration);
+				}
+			})
+			.fail(function(data){
+				console.log(data);
+			});
 
 	});
 });
@@ -120,36 +110,25 @@ table_department.on('click', 'a.edit-department', function(e){
 	$('.frm_editdepartment').submit(function(e){
 			e.preventDefault();
 			var a_name = $('input[name="edit_department_name"]').val();
-
-			if(a_name.toLowerCase() === department_name.toLowerCase()){
-				 
-				 toastr.warning('No changes made');
-
-			}else{
-			 
-				var token = $(this).serialize()+'&key=edit_department';
-				 $.ajax({
-					 type: "POST",
-					 url: "../class/edit/edit",
-					 data: token
-				 })
-				 .done(function(data){
-					 if(data == 1){
-						 toastr.success('Department successfully updated.');
-						 $('.editdepartment-side').toggle(effect, options, duration);
-						 table_department.ajax.reload(null,false);
-					 }else if(data == 2){
-						 toastr.error('Department name already exist');
-					 }else if(data == 0){
-						 toastr.error('Failed to add department');
-						 $('.editdepartment-side').toggle(effect, options, duration);
-					 }
-				 })
-				 .fail(function(data){
-					 console.log(data);
-				 });
-
-			}
+			var token = $(this).serialize()+'&key=edit_department';
+			 $.ajax({
+				 type: "POST",
+				 url: "../class/edit/edit",
+				 data: token
+			 })
+			 .done(function(data){
+				 if(data == 1){
+					 toastr.success('Department successfully updated.');
+					 $('.editdepartment-side').toggle(effect, options, duration);
+					 table_department.ajax.reload(null,false);
+				 }else if(data == 0){
+					 toastr.error('Failed to save department');
+					 $('.editdepartment-side').toggle(effect, options, duration);
+				 }
+			 })
+			 .fail(function(data){
+				 console.log(data);
+			 });
 
 	});
 });
