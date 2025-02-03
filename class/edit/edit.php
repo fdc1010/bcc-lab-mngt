@@ -99,7 +99,7 @@
 			$ab->execute(array($edit_department_id));
 			$fetchab = $ab->fetch();
 
-			$check = $conn->prepare("SELECT * FROM department WHERE `name` = ? ");
+			$check = $conn->prepare("SELECT * FROM department WHERE department_name = ? ");
 			$check->execute(array($edit_department_name));
 			$check_fetch = $check->fetch();
 			$check_row = $check->rowCount();
@@ -108,7 +108,7 @@
 
 			if($check_row <= 0){
 
-				$sql = $conn->prepare('UPDATE department SET `name` = ? WHERE id = ?;
+				$sql = $conn->prepare('UPDATE department SET department_name = ? WHERE id = ?;
 										INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)');
 				$sql->execute(array($edit_department_name,$edit_department_id,$h_desc,$h_tbl,$sessionid,$sessiontype));
 				$count = $sql->rowCount();
@@ -338,7 +338,7 @@
 
 		}
 
-		public function edit_member($sid_number,$fname,$lname,$s_gender,$s_contact,$s_department,$s_type,$yrs,$app_id)
+		public function edit_member($sid_number,$fname,$lname,$s_gender,$s_contact,$s_department,$s_type,$yrs,$app_id,$password)
 		{
 
 			global $conn;
@@ -350,9 +350,9 @@
 			$sessiontype = $_SESSION['admin_type'];
 
 
-			$sql = $conn->prepare('UPDATE member SET m_school_id = ?, m_fname = ?, m_lname = ?, m_gender = ?, m_contact = ?, m_department = ?, m_year_section = ?, m_type = ? WHERE id = ?;
+			$sql = $conn->prepare('UPDATE member SET m_school_id = ?, m_fname = ?, m_lname = ?, m_gender = ?, m_contact = ?, m_department = ?, m_year_section = ?, m_type = ?, m_password=? WHERE id = ?;
 									INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)');
-			$sql->execute(array($sid_number,$fname,$lname,$s_gender,$s_contact,$s_department,$yrs,$s_type,$app_id,$h_desc,$h_tbl,$sessionid,$sessiontype));
+			$sql->execute(array($sid_number,$fname,$lname,$s_gender,$s_contact,$s_department,$yrs,$s_type,$password,$app_id,$h_desc,$h_tbl,$sessionid,$sessiontype));
 			$row = $sql->rowCount();
 			echo $row;
 		}
@@ -701,7 +701,8 @@
 		$yrs = $_POST['s_year'].'-'.$_POST['s_section'];
 		$app_id = $_POST['app_id'];
 		$s_type = $_POST['s_type'];
-		$edit->edit_member($sid_number,$fname,$lname,$s_gender,$s_contact,$s_department,$s_type,$yrs,$app_id);
+		$password = md5($_POST['s_password']);
+		$edit->edit_member($sid_number,$fname,$lname,$s_gender,$s_contact,$s_department,$s_type,$yrs,$app_id,$password);
 		break;
 
 		case 'activate_member';

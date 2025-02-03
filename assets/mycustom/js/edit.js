@@ -623,11 +623,11 @@ table_member.on('click', 'a.edit-member', function(e){
 							</div>\
 							<div class="col-md-12">\
 								<label>Password</label>\
-								<input type="password" name="s_password" class="form-control" value="'+yrs[1]+'" required autocomplete="off">\
+								<input type="password" name="s_password" class="form-control" required />\
 							</div>\
 							<div class="col-md-12">\
 								<label>Confirm Password</label>\
-								<input type="password" name="s_cpassword" class="form-control" value="'+yrs[1]+'" required autocomplete="off">\
+								<input type="password" name="s_cpassword" class="form-control" />\
 							</div>\
 						</div>\
 					</div>\
@@ -654,8 +654,18 @@ table_member.on('click', 'a.edit-member', function(e){
 
 	$('.frm_student_sign').submit(function(e){
 		e.preventDefault();
-		var frmdata = $(this).serialize()+'&key=edit_member';
 
+		var frmdata = $(this).serialize()+'&key=edit_member';
+	
+		var s_password = $('input[name="s_password"]').val();
+		var s_cpassword = $('input[name="s_cpassword"]').val();
+
+		if(s_password !== s_cpassword){
+			 
+			 toastr.warning('Confirm password should match your password');
+
+		}
+		
 		$.ajax({
 			type: "POST",
 			url: "../class/edit/edit",

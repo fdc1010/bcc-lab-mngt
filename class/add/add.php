@@ -401,11 +401,11 @@
 			$sessiontype = $_SESSION['admin_type'];
 
 
-			$select = $conn->prepare("SELECT * FROM category WHERE `category_name` = ? "); 
+			$select = $conn->prepare("SELECT * FROM category WHERE category_name = ? "); 
 			$select->execute(array($name));
 			$row = $select->rowCount();
 			if($row <= 0){
-				$sql = $conn->prepare("INSERT INTO category(`category_name`) VALUES(?) ;
+				$sql = $conn->prepare("INSERT INTO category(category_name) VALUES(?) ;
 									   INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)");
 				$sql->execute(array('category '.$name,1,$h_desc,$h_tbl,$sessionid,$sessiontype));
 				$count = $sql->rowCount();
@@ -430,11 +430,11 @@
 			$sessiontype = $_SESSION['admin_type'];
 
 
-			$select = $conn->prepare("SELECT * FROM department WHERE `name` = ? "); 
+			$select = $conn->prepare("SELECT * FROM department WHERE department_name = ? "); 
 			$select->execute(array($name));
 			$row = $select->rowCount();
 			if($row <= 0){
-				$sql = $conn->prepare("INSERT INTO department(`name`) VALUES(?) ;
+				$sql = $conn->prepare("INSERT INTO department(department_name) VALUES(?) ;
 									   INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)");
 				$sql->execute(array('department '.$name,1,$h_desc,$h_tbl,$sessionid,$sessiontype));
 				$count = $sql->rowCount();
@@ -462,12 +462,12 @@
 		break;
 
 		case 'add_category';
-		$name = strtolower($_POST['name']);
+		$name = strtolower($_POST['category_name']);
 		$add_function->add_category($name);
 		break;
 
 		case 'add_department';
-		$name = strtolower($_POST['name']);
+		$name = strtolower($_POST['department_name']);
 		$add_function->add_department($name);
 		break;
 

@@ -91,7 +91,7 @@
 			$fetch = $sql->fetchAll();
 			if($count > 0){
 				foreach ($fetch as $key => $value) {
-					$deptname = $value['name'];
+					$deptname = $value['department_name'];
 
 
 					$button = 	'<div class="btn-group">
@@ -103,7 +103,7 @@
 									</ul>
 								</div>';
 
-					$data['data'][] = array(ucwords($value['name']),$button,$value['id']);
+					$data['data'][] = array(ucwords($value['department_name']),$button,$value['id']);
 				}
 				echo json_encode($data);
 			}else{
@@ -434,7 +434,7 @@
 			$fetch = $sql->fetchAll();
 			if($count > 0){
 				foreach ($fetch as $key => $value) {					
-					$data['data'][] = array($value['id'],$value['name']);
+					$data['data'][] = array($value['id'],$value['department_name']);
 				}
 				echo json_encode($data);
 			}else{
