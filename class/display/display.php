@@ -115,7 +115,7 @@
 		public function display_member()
 		{
 			global $conn; 
-			$sql = $conn->prepare("SELECT * FROM member");
+			$sql = $conn->prepare("SELECT * FROM member WHERE m_status=1");
 			$sql->execute();
 			$count = $sql->rowCount();
 			$fetch = $sql->fetchAll();
@@ -146,7 +146,7 @@
 		public function display_user()
 		{
 			global $conn; 
-			$sql = $conn->prepare("SELECT * FROM user");
+			$sql = $conn->prepare("SELECT * FROM user WHERE `status`=1");
 			$sql->execute();
 			$count = $sql->rowCount();
 			$fetch = $sql->fetchAll();
