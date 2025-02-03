@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 03, 2025 at 06:04 AM
+-- Generation Time: Feb 03, 2025 at 09:44 AM
 -- Server version: 8.0.41-0ubuntu0.24.04.1
 -- PHP Version: 8.2.24
 
@@ -68,7 +68,7 @@ CREATE TABLE `category` (
   `id` int NOT NULL,
   `category_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` tinyint NOT NULL DEFAULT '1',
+  `category_status` tinyint NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -77,7 +77,7 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `category_name`, `description`, `status`, `created_at`, `updated_at`) VALUES
+INSERT INTO `category` (`id`, `category_name`, `description`, `category_status`, `created_at`, `updated_at`) VALUES
 (1, 'mouse test', '', 1, '2025-01-27 02:43:13', '2025-01-27 02:43:13'),
 (2, 'Keyboard', '', 1, '2025-01-27 02:43:13', '2025-01-27 02:43:13'),
 (3, 'monitor 1', '', 1, '2025-01-27 02:43:39', '2025-01-27 02:43:39'),
@@ -116,8 +116,9 @@ CREATE TABLE `course` (
 
 CREATE TABLE `department` (
   `id` int NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `department_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `department_status` tinyint NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -126,13 +127,13 @@ CREATE TABLE `department` (
 -- Dumping data for table `department`
 --
 
-INSERT INTO `department` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'BSOA', '', '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
-(2, 'BEED', '', '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
-(3, 'COED', '', '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
-(4, 'BSIT', '', '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
-(5, 'BSIS', '', '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
-(6, 'ACT', '', '2025-01-28 00:41:05', '2025-01-28 00:41:05');
+INSERT INTO `department` (`id`, `department_name`, `description`, `department_status`, `created_at`, `updated_at`) VALUES
+(1, 'BSOA', '', 1, '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
+(2, 'BEED', '', 1, '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
+(3, 'COED', '', 1, '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
+(4, 'BSIT', '', 1, '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
+(5, 'BSIS', '', 1, '2025-01-28 00:41:05', '2025-01-28 00:41:05'),
+(6, 'ACT', '', 1, '2025-01-28 00:41:05', '2025-01-28 00:41:05');
 
 -- --------------------------------------------------------
 
@@ -214,7 +215,10 @@ INSERT INTO `history_logs` (`id`, `description`, `table_name`, `status_name`, `u
 (71, 'edit category  to mouse', 'category', NULL, 1, 1, '2025-02-03 12:04:01'),
 (72, 'edit category  to mouse test', 'category', NULL, 1, 1, '2025-02-03 12:04:21'),
 (73, 'add new equipmenttesttest , Monitor 1', 'equipment', NULL, 1, 1, '2025-02-03 13:55:17'),
-(74, 'edit category aircon test to aircon test1', 'category', NULL, 1, 1, '2025-02-03 13:57:57');
+(74, 'edit category aircon test to aircon test1', 'category', NULL, 1, 1, '2025-02-03 13:57:57'),
+(75, 'edit client', 'client', NULL, 1, 1, '2025-02-03 14:49:29'),
+(76, 'edit client', 'client', NULL, 1, 1, '2025-02-03 14:50:05'),
+(77, 'edit client', 'client', NULL, 1, 1, '2025-02-03 14:55:51');
 
 -- --------------------------------------------------------
 
@@ -369,7 +373,7 @@ INSERT INTO `member` (`id`, `m_school_id`, `m_fname`, `m_lname`, `m_gender`, `m_
 (2, 21200002, 'Chris ', 'Doe', 'Male', '9076486735', 'BSIS', '1st-A', 'Student', '', 0),
 (3, 21300024, 'Shane', 'Ramos', 'Female', '9072786945', 'BSCE', '1st-A', 'Student', '', 1),
 (4, 21300156, 'Jedha', 'Dela Cruz', 'Female', '9051467843', 'BSED', '2nd-A', 'Student', '', 1),
-(5, 21200011, 'Tresha', 'Tiamzon', 'Female', '9499007591', 'BSIT', '1st-A', 'Student', '', 1),
+(5, 21200011, 'Tresha', 'Tiamzon', 'Female', '9499007591', 'BSIT', '1st-A', 'Student', 'cc03e747a6afbbcbf8be7668acfebee5', 1),
 (6, 21400099, 'Mark', 'Susana', 'Male', '091265451332', 'BSIT', '2nd- B', 'Student', '', 1),
 (7, 21300073, 'Gino', 'Olmedo', 'Male', '09502786543', 'BSIS', '4th- A', 'Student', '', 1),
 (8, 21401109, 'Mika', 'Calapatan', 'Female', '09498723987', 'BSHRM', '3rd- C', 'Student', '', 1),
@@ -552,7 +556,7 @@ ALTER TABLE `course`
 --
 ALTER TABLE `department`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
+  ADD UNIQUE KEY `name` (`department_name`);
 
 --
 -- Indexes for table `equipment`
@@ -681,7 +685,7 @@ ALTER TABLE `equipment_inventory`
 -- AUTO_INCREMENT for table `history_logs`
 --
 ALTER TABLE `history_logs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `item`
