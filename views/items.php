@@ -75,7 +75,7 @@
 				 <div class="form-group">
 						<label >Photo</label>
 						
-						  <input type="file" name="e_photo" for="inputPassword3" class="form-control" required />
+						  <input type="file" name="e_photo" class="form-control" />
 						
 					  </div>
 				

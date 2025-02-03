@@ -288,6 +288,7 @@ $('.item-edit').click(function(){
 
   var deviceid = $('.e_id').text();
 	var e_category = $('.e_category').text();
+	var e_category_id = $('.e_category_id').text();
 	var e_model = $('.e_model').text();
 	var e_brand = $('.e_brand').text();
 	var e_description = $('.e_description').text();
@@ -320,7 +321,7 @@ $('.item-edit').click(function(){
 						</div>\
 						<div class="form-group">\
 							<label>Category</label>\
-							<select name="e_category" class="form-control" id="e_category" required>\
+							<select name="e_category" class="form-control" id="e_category" style="text-transform: capitalize;" required>\
 							</select> \
 						</div>\
 						<div class="form-group">\
@@ -368,7 +369,7 @@ $('.item-edit').click(function(){
 		data.forEach((elem) => {			
 			if(e_rm_id == elem[0]){
 			}else{
-				opt += '<option value="'+elem[0]+'">'+elem[1]+'</option>';
+				opt += '<option>'+elem[1]+'</option>';
 			}
 		});
 		$('#cbo_room').html(opt);
@@ -386,9 +387,9 @@ $('.item-edit').click(function(){
 		var opt = '';
 		data.forEach((elem) => {			
 			if(e_category == elem[1]){
-				opt += '<option value="'+elem[0]+'" selected>'+elem[1]+'</option>';
+				opt += '<option selected>'+elem[1]+'</option>';
 			}else{
-				opt += '<option value="'+elem[0]+'">'+elem[1]+'</option>';
+				opt += '<option>'+elem[1]+'</option>';
 			}
 		});
 		$('#e_category').html(opt);

@@ -62,7 +62,7 @@
 			$fetch = $sql->fetchAll();
 			if($count > 0){
 				foreach ($fetch as $key => $value) {
-					$catname = $value['name'];
+					$catname = $value['category_name'];
 
 					$button = 	'<div class="btn-group">
 									<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -73,7 +73,7 @@
 									</ul>
 								</div>';
 
-					$data['data'][] = array(ucwords($value['name']),$button,$value['id']);
+					$data['data'][] = array(ucwords($value['category_name']),$button,$value['id']);
 				}
 				echo json_encode($data);
 			}else{
@@ -225,6 +225,7 @@
 			$sql = $conn->prepare('SELECT *, item_stock.id as e_id FROM item_stock
 									LEFT JOIN item ON item.id = item_stock.item_id
 									LEFT JOIN room ON item_stock.room_id = room.id
+									LEFT JOIN category ON item.i_category_id = category.id
 									WHERE item_stock.item_status = ? OR item_stock.item_status = ?');
 			$sql->execute(array(1,2));
 			$row = $sql->rowCount();
@@ -241,7 +242,7 @@
 								</div>';
 
 					$photo = ($value['i_photo'] == "") ? "../assets/noimagefound.jpg" : "../uploads/" . $value['i_photo'];
-					$data['data'][] = array('<img src="'.$photo.'" style="height=75px;width:75px;object-fit:cover" class="img-responsive" />',$value['i_model'],$value['i_category'],$value['i_description'],$value['item_rawstock'],$value['items_stock'],$str_status,$button,$value['i_brand'],ucwords($value['rm_name']),);
+					$data['data'][] = array('<img src="'.$photo.'" style="height=75px;width:75px;object-fit:cover" class="img-responsive" />',$value['i_model'],$value['i_category'],$value['i_description'],$value['item_rawstock'],$value['items_stock'],$str_status,$button,$value['i_brand'],ucwords($value['rm_name']),$value['i_category_id'],$value['category_name']);
 				}
 				echo json_encode($data);
 			}else{
@@ -293,6 +294,7 @@
 				$sql = $conn->prepare('SELECT *, item_stock.id as itemID FROM item_stock 
 										LEFT JOIN item ON item.id = item_stock.item_id
 										LEFT JOIN room ON room.id = item_stock.room_id 
+										LEFT JOIN category ON item.i_category_id = category.id
 										WHERE item_stock.room_id = ? AND item_stock.items_stock != ?');
 				$sql->execute(array($id,0));
 				$count = $sql->rowCount();
@@ -396,7 +398,7 @@
 			$fetch = $sql->fetchAll();
 			if($count > 0){
 				foreach ($fetch as $key => $value) {
-					$data['data'][] = array($value['id'],$value['name']);
+					$data['data'][] = array($value['id'],$value['category_name']);
 				}
 				echo json_encode($data);
 			}else{
@@ -448,6 +450,7 @@
 			$sql = $conn->prepare("SELECT * FROM item_stock 
 								   LEFT JOIN item ON item.id = item_stock.item_id
 								   LEFT JOIN room ON room.id = item_stock.room_id
+									 LEFT JOIN category ON item.i_category_id = category.id
 								   WHERE item_stock.id = ?");
 			$sql->execute(array($id));
 			$fetch = $sql->fetchAll();
@@ -461,6 +464,7 @@
 					$data[] = array('e_photo'=>$photo,
 									'e_deviceid'=>$value['i_deviceID'],
 									'e_category'=>ucwords($value['i_category']),
+									'e_category_id'=>$value['i_category_id'],
 									'e_brand'=>ucwords($value['i_brand']),
 									'e_description'=>$value['i_description'],
 									'e_stock'=>$value['item_rawstock'],
