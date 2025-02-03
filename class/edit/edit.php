@@ -61,7 +61,7 @@
 			$ab->execute(array($edit_category_id));
 			$fetchab = $ab->fetch();
 
-			$check = $conn->prepare("SELECT * FROM category WHERE `category_name` = ? ");
+			$check = $conn->prepare("SELECT * FROM category WHERE category_name = ? ");
 			$check->execute(array($edit_category_name));
 			$check_fetch = $check->fetch();
 			$check_row = $check->rowCount();

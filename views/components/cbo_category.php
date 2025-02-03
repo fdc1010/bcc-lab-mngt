@@ -4,7 +4,7 @@
     require_once "../class/config/config.php";
 
     global $conn;
-    $sql = $conn->prepare("SELECT * FROM category WHERE status = 1");
+    $sql = $conn->prepare("SELECT * FROM category WHERE category_status = 1");
     $sql->execute();
     $count = $sql->rowCount();
     $fetch = $sql->fetchAll();

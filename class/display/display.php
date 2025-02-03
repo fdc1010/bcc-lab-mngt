@@ -56,7 +56,7 @@
 		function display_category()
 		{
 			global $conn;
-			$sql = $conn->prepare("SELECT * FROM category");
+			$sql = $conn->prepare("SELECT * FROM category WHERE category_status=1");
 			$sql->execute();
 			$count = $sql->rowCount();
 			$fetch = $sql->fetchAll();
@@ -85,7 +85,7 @@
 		function display_department()
 		{
 			global $conn;
-			$sql = $conn->prepare("SELECT * FROM department");
+			$sql = $conn->prepare("SELECT * FROM department WHERE department_status=1");
 			$sql->execute();
 			$count = $sql->rowCount();
 			$fetch = $sql->fetchAll();
