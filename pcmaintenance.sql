@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 03, 2025 at 09:44 AM
+-- Generation Time: Feb 06, 2025 at 06:10 PM
 -- Server version: 8.0.41-0ubuntu0.24.04.1
 -- PHP Version: 8.2.24
 
@@ -67,7 +67,7 @@ INSERT INTO `borrow` (`id`, `date_borrow`, `borrowcode`, `member_id`, `item_id`,
 CREATE TABLE `category` (
   `id` int NOT NULL,
   `category_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `category_status` tinyint NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -117,7 +117,7 @@ CREATE TABLE `course` (
 CREATE TABLE `department` (
   `id` int NOT NULL,
   `department_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `department_status` tinyint NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -177,7 +177,7 @@ CREATE TABLE `equipment_inventory` (
 
 CREATE TABLE `history_logs` (
   `id` int NOT NULL,
-  `description` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `table_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_name` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `user_id` int NOT NULL,
@@ -218,7 +218,16 @@ INSERT INTO `history_logs` (`id`, `description`, `table_name`, `status_name`, `u
 (74, 'edit category aircon test to aircon test1', 'category', NULL, 1, 1, '2025-02-03 13:57:57'),
 (75, 'edit client', 'client', NULL, 1, 1, '2025-02-03 14:49:29'),
 (76, 'edit client', 'client', NULL, 1, 1, '2025-02-03 14:50:05'),
-(77, 'edit client', 'client', NULL, 1, 1, '2025-02-03 14:55:51');
+(77, 'edit client', 'client', NULL, 1, 1, '2025-02-03 14:55:51'),
+(78, 'add new room 222', 'room', NULL, 1, 1, '2025-02-07 01:37:03'),
+(79, 'add new category test', 'category', NULL, 1, 1, '2025-02-07 01:44:15'),
+(80, 'add new category test1test', 'category', NULL, 1, 1, '2025-02-07 01:46:58'),
+(81, 'add new category test223', 'category', NULL, 1, 1, '2025-02-07 01:59:04'),
+(82, 'add new category test223', 'category', NULL, 1, 1, '2025-02-07 01:59:26'),
+(83, 'add new category test 23232', 'category', NULL, 1, 1, '2025-02-07 02:05:17'),
+(84, 'add new category test324344', 'category', NULL, 1, 1, '2025-02-07 02:07:33'),
+(85, 'add new category aaaabbbbb', 'category', NULL, 1, 1, '2025-02-07 02:07:45'),
+(86, 'add new category bbbbbbb', 'category', NULL, 1, 1, '2025-02-07 02:07:57');
 
 -- --------------------------------------------------------
 
@@ -457,7 +466,8 @@ INSERT INTO `room` (`id`, `rm_name`, `rm_date_added`, `rm_status`) VALUES
 (9, 'room 304', '2016-11-17 20:52:20', 1),
 (10, 'room 305', '2016-11-17 20:52:56', 1),
 (11, 'room 306', '2016-11-17 20:53:20', 1),
-(14, 'room 310', '2017-01-08 13:17:18', 1);
+(14, 'room 310', '2017-01-08 13:17:18', 1),
+(15, 'room 222', '2025-02-07 01:37:03', 1);
 
 -- --------------------------------------------------------
 
@@ -542,7 +552,7 @@ ALTER TABLE `borrow`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`category_name`);
+  ADD UNIQUE KEY `category_name` (`category_name`);
 
 --
 -- Indexes for table `course`
@@ -556,7 +566,7 @@ ALTER TABLE `course`
 --
 ALTER TABLE `department`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`department_name`);
+  ADD UNIQUE KEY `department_name` (`department_name`);
 
 --
 -- Indexes for table `equipment`
@@ -655,7 +665,7 @@ ALTER TABLE `borrow`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `course`
@@ -685,7 +695,7 @@ ALTER TABLE `equipment_inventory`
 -- AUTO_INCREMENT for table `history_logs`
 --
 ALTER TABLE `history_logs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `item`
@@ -733,7 +743,7 @@ ALTER TABLE `reservation_status`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `room_equipment`

@@ -405,9 +405,9 @@
 			$select->execute(array($name));
 			$row = $select->rowCount();
 			if($row <= 0){
-				$sql = $conn->prepare("INSERT INTO category(category_name) VALUES(?) ;
-									   INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)");
-				$sql->execute(array('category '.$name,1,$h_desc,$h_tbl,$sessionid,$sessiontype));
+				$sql = $conn->prepare("INSERT INTO category(category_name) VALUES(?);
+						INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)");
+				$sql->execute(array($name,$h_desc,$h_tbl,$sessionid,$sessiontype));
 				$count = $sql->rowCount();
 				if($count > 0){
 					echo "1"; 
@@ -462,12 +462,12 @@
 		break;
 
 		case 'add_category';
-		$name = strtolower($_POST['category_name']);
+		$name = strtolower($_POST['name']);
 		$add_function->add_category($name);
 		break;
 
 		case 'add_department';
-		$name = strtolower($_POST['department_name']);
+		$name = strtolower($_POST['name']);
 		$add_function->add_department($name);
 		break;
 

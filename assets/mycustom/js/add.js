@@ -521,7 +521,7 @@ $('.frm_addcategory').submit(function(e){
 		a.val('');
 		if(data == 1){
 			toastr.success("Category added.");
-			table_room.ajax.reload(null,false);
+			table_category.ajax.reload(null,false);
 			$('.cancel_category').click();
 		}
 		else if(data == 2){
@@ -555,7 +555,7 @@ $('.frm_adddepartment').submit(function(e){
 		a.val('');
 		if(data == 1){
 			toastr.success("Department added.");
-			table_room.ajax.reload(null,false);
+			table_department.ajax.reload(null,false);
 			$('.cancel_department').click();
 		}
 		else if(data == 2){

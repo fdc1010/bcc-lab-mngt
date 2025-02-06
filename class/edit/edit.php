@@ -70,7 +70,7 @@
 
 			if($check_row <= 0){
 
-				$sql = $conn->prepare('UPDATE category SET `category_name` = ? WHERE id = ?;
+				$sql = $conn->prepare('UPDATE category SET category_name = ? WHERE id = ?;
 										INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)');
 				$sql->execute(array($edit_category_name,$edit_category_id,$h_desc,$h_tbl,$sessionid,$sessiontype));
 				$count = $sql->rowCount();

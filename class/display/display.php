@@ -814,7 +814,7 @@
 								 	LEFT JOIN member ON member.id = reservation.member_id
 								 	LEFT JOIN room ON room.id = reservation.assign_room
 								 	LEFT JOIN reservation_status ON reservation_status.reservation_code = reservation.reservation_code
-								 	WHERE reservation.member_id = ? GROUP BY reservation.reservation_code,reservation.id');
+								 	WHERE reservation.member_id = ? GROUP BY reservation.reservation_code,reservation.id,reservation_status.id');
 			$sql->execute(array($session));
 			$fetch = $sql->fetchAll();
 			$count = $sql->rowCount();

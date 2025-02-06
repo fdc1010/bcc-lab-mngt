@@ -762,8 +762,8 @@ table_user.on('click', 'a.edit-user', function(e){
 					<select class="form-control" name="u_type" required="required">\
 						<option disabled selected value="">'+tr[1]+'</option>\
 						<option value="1">Administrator</option>\
-						<option value="2">Staff/ Faculty/ Sudent Assistant</option>\
-						<option value="3">Sudent</option>\
+						<option value="2">Staff/ Faculty/ Student Assistant</option>\
+						<option value="3">Student</option>\
 					</select>\
 				</div>\
 				<div class="form-group">\
