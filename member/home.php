@@ -1,6 +1,7 @@
 <?php 
 date_default_timezone_set('Asia/Manila');
 	include 'header.php';
+	include '../views/layouts/side_bar.php';
 	include 'make_reservation.php';
 ?>
 
