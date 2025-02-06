@@ -1,12 +1,12 @@
 <?php 
 date_default_timezone_set('Asia/Manila');
-include './layouts/header.php';
+include 'header.php';
 
-include './layouts/side_bar.php';
+include '../views/layouts/side_bar.php';
 
-include './components/new_panel.php';
+include '../views/components/new_panel.php';
 
-include './layouts/footer.php';
+include 'footer.php';
 ?>
 
 		<script type="text/javascript">
