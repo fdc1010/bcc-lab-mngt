@@ -1,11 +1,11 @@
 <?php 
-	include './layouts/header.php';
+	include 'header.php';
 
-	include './layouts/side_bar.php';
-
-	include './components/room_info_panel.php';
+	include '../views/layouts/side_bar.php';
 	
-	include './layouts/footer.php';
+	include '../views/components/category_info_panel.php';
+	
+	include 'footer.php';
 ?>
 
 <script type="text/javascript">

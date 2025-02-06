@@ -134,5 +134,13 @@ if(!empty($_SERVER['REQUEST_URI'])) {
 				}
 				($_SESSION['admin_type'] == 1) ? include('include_history.php') : false;
 			 ?>
+			 <li>
+				 <a href="reserve_logs">
+					 <svg class="glyph stroked female user">
+						 <use xlink:href="#stroked-female-user"/>
+					 </svg>
+					 Reservation Status
+				 </a>
+			 </li>
 		</ul>
 	</div><!--/.sidebar-->
