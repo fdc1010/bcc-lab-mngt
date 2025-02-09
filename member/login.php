@@ -79,4 +79,4 @@
 
 
 
-<?php include 'footer.php'; ?>
+<?php include 'm_footer.php'; ?>

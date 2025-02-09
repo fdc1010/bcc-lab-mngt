@@ -43,15 +43,13 @@
 							<form class="frm_index">
 								<fieldset>
 									<div class="form-group">
-										<input class="form-control" placeholder="Username" name="username" type="username" autofocus="" autocomplete="off">
+										<input class="form-control" placeholder="Username / ID Number" name="username" type="username" autofocus="" autocomplete="off">
 									</div>
 									<div class="form-group">
 										<input class="form-control" placeholder="Password" name="password" type="password" value="">
 									</div>
 									<br>
 									<button class="btn btn-primary btn-block">Log in</button>
-									<br>
-									<a href="./member/login"> Go to Student / Teacher Portal</a>
 								</fieldset>
 							</form>
 						</div>

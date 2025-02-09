@@ -1,5 +1,5 @@
 <?php 
-	include 'header.php';
+	include 'm_header.php';
 ?>
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 col-md-2 sidebar">
 		<form role="search">
@@ -59,5 +59,5 @@
 
 
 
-<?php include 'footer.php'; ?>
+<?php include 'm_footer.php'; ?>
 

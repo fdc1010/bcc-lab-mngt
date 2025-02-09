@@ -23,7 +23,7 @@
 				$_SESSION['admin_type'] = $fetch['type'];
 				echo "1";
 			}else{
-				echo "0";
+				$this->member_login($username,$password);
 			}
 		}
 
@@ -41,7 +41,7 @@
 				$_SESSION['member_id'] = $fetch['id'];
 				$_SESSION['member_name'] = $fetch['m_fname']." ".$fetch['m_lname'];
 				$_SESSION['member_type'] = $fetch['m_type'];
-				echo "1";
+				echo "2";
 			}else{
 				echo "0";
 			}

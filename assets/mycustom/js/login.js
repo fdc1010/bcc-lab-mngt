@@ -20,6 +20,12 @@ $('.frm_index').submit(function(e){
     			window.location = 'views/dashboard';
     		},300);
 
+    	}else if(data == 2){
+    		toastr.success('Successfully login', 'Redirecting');
+    		setTimeout(function(){
+    			window.location = 'member/home';
+    		},300);
+
     	}else{
     		toastr.error('Username and password are incorrect');
     		$(this).find('button').attr('disabled', true);
