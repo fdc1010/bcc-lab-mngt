@@ -137,9 +137,7 @@
 			$sqlrm->execute(array($rm_id));
 			$fetchrm = $sqlrm->fetch();
 
-			$sqlc = $conn->prepare('SELECT * FROM item_stock
-										LEFT JOIN room ON room.id = item_stock.room_id
-										WHERE item_stock.item_id = ?');
+			$sqlc = $conn->prepare('SELECT * FROM item_stock WHERE item_stock.item_id = ?');
 			$sqlc->execute(array($e_id));
 			$fetch = $sqlc->fetch();
 			$count = $sqlc->rowCount();
@@ -150,7 +148,7 @@
 
 				$sql = $conn->prepare('UPDATE item_stock SET room_id = ? WHERE id = ?;
 										INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)');
-				$sql->execute(array($rm_id,$e_id,$h_desc,$h_tbl,$sessionid,$sessiontype));
+				$sql->execute(array($rm_id,$fetch['id'],$h_desc,$h_tbl,$sessionid,$sessiontype));
 				$checkcount = $sql->rowCount();
 				if($checkcount > 0){
 					echo "1";
@@ -159,7 +157,7 @@
 				}
 
 			}else{
-				echo '2';
+				echo $count;
 			}
 
 		}
