@@ -137,27 +137,16 @@
 			$sqlrm->execute(array($rm_id));
 			$fetchrm = $sqlrm->fetch();
 
-			$sqlc = $conn->prepare('SELECT * FROM item_stock WHERE item_stock.item_id = ?');
-			$sqlc->execute(array($e_id));
-			$fetch = $sqlc->fetch();
-			$count = $sqlc->rowCount();
-
 			$h_desc = 'Room reassignment of item from '.$p_rm. ' to ' .$fetchrm['rm_name'];
 
-			if($count > 0){
-
-				$sql = $conn->prepare('UPDATE item_stock SET room_id = ? WHERE id = ?;
-										INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)');
-				$sql->execute(array($rm_id,$fetch['id'],$h_desc,$h_tbl,$sessionid,$sessiontype));
-				$checkcount = $sql->rowCount();
-				if($checkcount > 0){
-					echo "1";
-				}else{
-					echo "0";
-				}
-
+			$sql = $conn->prepare('UPDATE item_stock SET room_id = ? WHERE id = ?;
+									INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)');
+			$sql->execute(array($rm_id,$e_id,$h_desc,$h_tbl,$sessionid,$sessiontype));
+			$checkcount = $sql->rowCount();
+			if($checkcount > 0){
+				echo "1";
 			}else{
-				echo $count;
+				echo "0";
 			}
 
 		}
