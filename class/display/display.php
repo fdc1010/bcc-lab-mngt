@@ -28,6 +28,7 @@
 									<ul class="dropdown-menu">
 										<li><a href="javascript:;" class="edit-room" ><i class="fa fa-edit"></i> Edit</a></li>
 										<li><a href="room_info?name='.$myname.'&id='.$value["id"].'"><i class="fa fa-search"></i> View Items</a></li>
+										<li><a href="javascript:;" class="delete-room" ><i class="fa fa-trash-o" style="padding-top:15px;color:red;"></i> Delete</a></li>
 									</ul>
 								</div>';
 
@@ -37,6 +38,7 @@
 									</button>
 									<ul class="dropdown-menu">
 										<li><a href="javascript:;" class="edit-room" ><i class="fa fa-edit"></i> Edit</a></li>
+										<li><a href="javascript:;" class="delete-room" ><i class="fa fa-trash-o" style="padding-top:15px;color:red;"></i> Delete</a></li>
 									</ul>
 								</div>';
 
@@ -70,6 +72,7 @@
 									</button>
 									<ul class="dropdown-menu">
 										<li><a href="javascript:;" class="edit-category" ><i class="fa fa-edit"></i> Edit</a></li>
+										<li><a href="javascript:;" class="delete-category" ><i class="fa fa-trash-o" style="padding-top:15px;color:red;"></i> Delete</a></li>
 									</ul>
 								</div>';
 
@@ -100,6 +103,7 @@
 									</button>
 									<ul class="dropdown-menu">
 										<li><a href="javascript:;" class="edit-department" ><i class="fa fa-edit"></i> Edit</a></li>
+										<li><a href="javascript:;" class="delete-department" ><i class="fa fa-trash-o" style="padding-top:15px;color:red;"></i> Delete</a></li>
 									</ul>
 								</div>';
 
@@ -289,7 +293,7 @@
 			// 						-- LEFT JOIN room_equipment ON room_equipment.equipment_id = equipment.id
 			// 						WHERE room_id = ?');
 
-			if($name == 'room 310'){
+			// if($name == 'room 310'){
 
 				$sql = $conn->prepare('SELECT *, item_stock.id as itemID FROM item_stock 
 										LEFT JOIN item ON item.id = item_stock.item_id
@@ -320,21 +324,23 @@
 						}
 						echo json_encode($data);
 
-					}else{
-						$data['data'] = array();
-						echo json_encode($data);
-					}
+					// }else{
+					// 	$data['data'] = array();
+					// 	echo json_encode($data);
+					// }
 			}else{
 				$sql = $conn->prepare('SELECT *, item_transfer.id as itemID FROM item_transfer
 										LEFT JOIN item_stock ON item_stock.id = item_transfer.t_stockID
 										LEFT JOIN item ON item.id = item_stock.item_id
+										LEFT JOIN room ON room.id = item_stock.room_id
+										LEFT JOIN category ON item.i_category_id = category.id
 										WHERE item_transfer.t_roomID = ? AND item_transfer.t_status = ?');
 				$sql->execute(array($id,1));
 				$row = $sql->rowCount();
 				$fetch = $sql->fetchAll();
 					if($row > 0){
 						foreach ($fetch as $key => $value) {
-							$button = "<button class='btn btn-primary btn_return' data-id=".$value['itemID'].">Return to 310</button>";
+							$button = "<button class='btn btn-primary btn_return' data-id=".$value['itemID']." style='text-transform: capitalize;'>Return to ".$value['rm_name']."</button>";
 							$data['data'][] = array($value['i_model'],ucwords($value['i_category']),ucwords($value['i_brand']),$value['i_description'],$value['t_quantity'],ucwords($value['i_type']),'Transferred',$button);
 						}
 						echo json_encode($data);
@@ -392,7 +398,7 @@
 		public function opt_categories()
 		{
 			global $conn;
-			$sql = $conn->prepare("SELECT * FROM category WHERE status = 1");
+			$sql = $conn->prepare("SELECT * FROM category WHERE category_status = 1");
 			$sql->execute();
 			$count = $sql->rowCount();
 			$fetch = $sql->fetchAll();
@@ -410,7 +416,7 @@
 		public function opt_rooms()
 		{
 			global $conn;
-			$sql = $conn->prepare("SELECT * FROM room");
+			$sql = $conn->prepare("SELECT * FROM room WHERE rm_status = 1 ORDER BY rm_name");
 			$sql->execute();
 			$count = $sql->rowCount();
 			$fetch = $sql->fetchAll();
@@ -428,7 +434,7 @@
 		public function opt_departments()
 		{
 			global $conn;
-			$sql = $conn->prepare("SELECT * FROM department");
+			$sql = $conn->prepare("SELECT * FROM department WHERE department_status = 1");
 			$sql->execute();
 			$count = $sql->rowCount();
 			$fetch = $sql->fetchAll();
@@ -1015,8 +1021,10 @@
 		{
 			global $conn;
 
-			$sql = $conn->prepare('SELECT * FROM room WHERE rm_name = ?');
-			$sql->execute(array('room 310'));
+			// $sql = $conn->prepare('SELECT * FROM room WHERE rm_name = ?');
+			// $sql->execute(array('room 310'));
+			$sql = $conn->prepare('SELECT * FROM room WHERE id = ?');
+			$sql->execute(array($id));
 			$fetch = $sql->fetchAll();
 			foreach ($fetch as $key => $value) {
 				$data[] = array(ucwords($value['rm_name']),$value['id']);
@@ -1029,8 +1037,10 @@
 		{
 			global $conn;
 
-			$sql = $conn->prepare('SELECT * FROM room WHERE rm_name != ? ORDER BY rm_name ASC');
-			$sql->execute(array('room 310'));
+			// $sql = $conn->prepare('SELECT * FROM room WHERE rm_name != ? ORDER BY rm_name ASC');
+			// $sql->execute(array('room 310'));
+			$sql = $conn->prepare('SELECT * FROM room WHERE rm_status = 1 ORDER BY rm_name ASC');
+			$sql->execute();
 			$fetch = $sql->fetchAll();
 
 			foreach ($fetch as $key => $value) {
@@ -1095,8 +1105,10 @@
 		{
 			global $conn;
 
-			$sql = $conn->prepare('SELECT * FROM room WHERE rm_name != ? ORDER BY rm_name ASC');
-			$sql->execute(array('room 310'));
+			// $sql = $conn->prepare('SELECT * FROM room WHERE rm_name != ? ORDER BY rm_name ASC');
+			// $sql->execute(array('room 310'));
+			$sql = $conn->prepare('SELECT * FROM room WHERE rm_status = 1 ORDER BY rm_name ASC');
+			$sql->execute();
 			$fetch = $sql->fetchAll();
 				foreach ($fetch as $key => $value) {
 					$data[] = array($value['id'],ucwords($value['rm_name']));

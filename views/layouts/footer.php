@@ -52,6 +52,7 @@
 	<script type="text/javascript" src="../assets/mycustom/js/custom.js"></script>
 	<script type="text/javascript" src="../assets/mycustom/js/add.js"></script>
 	<script type="text/javascript" src="../assets/mycustom/js/edit.js"></script>
+	<script type="text/javascript" src="../assets/mycustom/js/remove.js"></script>
 	<script type="text/javascript" src="../assets/mycustom/js/chart.js"></script>
 
 	

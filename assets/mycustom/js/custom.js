@@ -95,30 +95,30 @@ $('.faculty-div').click(function(){
 });
 
 
-$.ajax({
-    type: "POST",
-    url: "../class/display/display",
-    data: {
-        key: "display_roomtype"
-    }
-})
-.done(function(data){
-    // console.log(data)
-   if(data != 0 ){
-        var a = JSON.parse(data);
-        var select = '';
-        $.each(a, function(x,y){
-            select += '<option value="'+y[0]+'" selected>'+y[1]+'</option>';
-        });
-        $('select[name="e_assigned"]').html(select);
-        $('body select[name="e_assigned1"]').html(select);
-   }else{
-        $('select[name="e_rm"]').html('<option disabled selected>Please select room</option>');
-   }
-})
-.fail(function(data){
-    console.log(data);
-});
+// $.ajax({
+//     type: "POST",
+//     url: "../class/display/display",
+//     data: {
+//         key: "display_roomtype"
+//     }
+// })
+// .done(function(data){
+//     // console.log(data)
+//    if(data != 0 ){
+//         var a = JSON.parse(data);
+//         var select = '';
+//         $.each(a, function(x,y){
+//             select += '<option value="'+y[0]+'" selected>'+y[1]+'</option>';
+//         });
+//         $('select[name="e_assigned"]').html(select);
+//         $('body select[name="e_assigned1"]').html(select);
+//    }else{
+//         $('select[name="e_rm"]').html('<option disabled selected>Please select room</option>');
+//    }
+// })
+// .fail(function(data){
+//     console.log(data);
+// });
 
 $.ajax({
     type: "POST",
@@ -222,7 +222,10 @@ $('body').on('click', '.equipment-forminfo .cancel-equipmentinfo', function(e){
 });
 
 
-
+$('body').on('click', '.equipment-forminfo .cancel-item-reassign_room', function(e){
+    e.preventDefault();
+    $('.equipment-info').toggle(effect, options, duration);
+});
 
 
 

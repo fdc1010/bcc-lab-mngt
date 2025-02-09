@@ -1,10 +1,10 @@
 var table_room =  $('.table_room').DataTable({
-			"fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-                    if ( aData[0] == "Room 310" )
-                    {
-                        $('td', nRow).css('background-color', 'skyblue');
-                    }
-                },
+			// "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+      //               if ( aData[0] == "Room 310" )
+      //               {
+      //                   $('td', nRow).css('background-color', 'skyblue');
+      //               }
+      //           },
 		"ajax":
 		{
 			"url": "../class/display/display",
@@ -1930,12 +1930,6 @@ var table_inventory_transfer = $('.table_inventory_transfer').DataTable({
 });
 
 var table_category =  $('.table_category').DataTable({
-	"fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-								if ( aData[0] == "Room 310" )
-								{
-										$('td', nRow).css('background-color', 'skyblue');
-								}
-						},
 "ajax":
 {
 	"url": "../class/display/display",

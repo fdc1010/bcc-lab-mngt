@@ -263,10 +263,10 @@ function handleInit(){
   chart.legend.addListener("rollOverItem", handleRollOver);
 }
 
-// function handleRollOver(e){
-//   var wedge = e.dataItem.wedge.node;
-//   wedge.parentNode.appendChild(wedge);
-// }
+function handleRollOver(e){
+  var wedge = e.dataItem.wedge.node;
+  wedge.parentNode.appendChild(wedge);
+}
 });
 
 </script>
@@ -335,10 +335,10 @@ function handleInit(){
   chart.legend.addListener("rollOverItem", handleRollOver);
 }
 
-// function handleRollOver(e){
-//   var wedge = e.dataItem.wedge.node;
-//   wedge.parentNode.appendChild(wedge);
-// }
+function handleRollOver(e){
+  var wedge = e.dataItem.wedge.node;
+  wedge.parentNode.appendChild(wedge);
+}
 });
 
 </script>

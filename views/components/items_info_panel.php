@@ -21,6 +21,10 @@
 					<i class="fa fa-arrows-alt"></i>
 					Change Status
 				</button>
+				<button class="btn btn-primary item-reassigned_room" type="button">
+					<i class="fa fa-forward"></i>
+					Reassign room
+				</button>
 			</div>
 		</div><!--/.row-->
 		<div class="row">
@@ -52,10 +56,6 @@
 									<td class="e_brand"></td>
 								</tr>
 								<tr>
-									<td class="col-sm-6">Room</td>
-									<td class="e_rm"></td>
-								</tr>
-								<tr>
 									<td class="success col-sm-6">Description</td>
 									<td class="e_description"></td>
 								</tr>
@@ -80,7 +80,7 @@
 									<td class="e_rm"></td>
 								</tr>
 								<tr>
-									<td class="col-sm-6">Apps Installed</td>
+									<td class="success col-sm-6">Apps Installed</td>
 									<td class="e_apps"></td>
 								</tr>
 							</tbody>

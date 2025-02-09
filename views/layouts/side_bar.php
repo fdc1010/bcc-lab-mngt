@@ -122,14 +122,14 @@ if(!empty($_SERVER['REQUEST_URI'])) {
 					Category
 				</a>
 			</li>
-			<li <?php echo strtolower(trim($path)) == "department" ? 'class="active"' : ""; ?>>
+			<!-- <li <?php echo strtolower(trim($path)) == "department" ? 'class="active"' : ""; ?>>
 				<a href="department">
 					<svg class="glyph stroked female user">
 						<use xlink:href="#stroked-female-user"/>
 					</svg>
 					Department
 				</a>
-			</li>
+			</li> -->
 			<?php 
 				}
 				($_SESSION['admin_type'] == 1) ? include('include_history.php') : false;

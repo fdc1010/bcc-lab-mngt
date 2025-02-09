@@ -41,7 +41,7 @@
 				<h4 class="alert bg-navbar-panel"><i class="fa fa-plus"></i> Add Room</h4>
 				<div class="form-group">
 					<label>Room / Laboratory Room Number</label>
-					<input type="number" name="room_name" min="0" class="form-control" autofocus autocomplete="off" required>
+					<input type="text" name="room_name" class="form-control" autofocus autocomplete="off" required>
 				</div>
 				<div class="form-group">
 					<div class="row">
