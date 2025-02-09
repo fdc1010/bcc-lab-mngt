@@ -1,13 +1,13 @@
 <?php 
 date_default_timezone_set('Asia/Manila');
-	include 'header.php';
-	include '../views/layouts/side_bar.php';
+	include 'm_header.php';
+	include 'm_side_bar.php';
 	include 'make_reservation.php';
 ?>
 
 
 
-<?php include 'footer.php'; ?>
+<?php include 'm_footer.php'; ?>
 
 <script type="text/javascript">
 $(document).ready(function(){
