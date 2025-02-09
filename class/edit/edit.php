@@ -123,6 +123,46 @@
 			}
 
 		}
+		
+		public function reassign_room($e_id,$rm_id,$p_rm)
+		{
+			global $conn;
+
+			session_start();
+			$h_tbl = 'item_stock';
+			$sessionid = $_SESSION['admin_id'];
+			$sessiontype = $_SESSION['admin_type'];
+
+			$sqlrm = $conn->prepare('SELECT * FROM room WHERE id = ?');
+			$sqlrm->execute(array($rm_id));
+			$fetchrm = $sqlrm->fetch();
+
+			$sqlc = $conn->prepare('SELECT * FROM item_stock
+										LEFT JOIN room ON room.id = item_stock.room_id
+										WHERE item_stock.item_id = ?');
+			$sqlc->execute(array($e_id));
+			$fetch = $sqlc->fetch();
+			$count = $sqlc->rowCount();
+
+			$h_desc = 'Room reassignment of item from '.$p_rm. ' to ' .$fetchrm['rm_name'];
+
+			if($count > 0){
+
+				$sql = $conn->prepare('UPDATE item_stock SET room_id = ? WHERE id = ?;
+										INSERT INTO history_logs(description,table_name,user_id,user_type) VALUES(?,?,?,?)');
+				$sql->execute(array($rm_id,$e_id,$h_desc,$h_tbl,$sessionid,$sessiontype));
+				$checkcount = $sql->rowCount();
+				if($checkcount > 0){
+					echo "1";
+				}else{
+					echo "0";
+				}
+
+			}else{
+				echo '2';
+			}
+
+		}
 
 		public function edit_moveroom($assign,$tbl_id,$move_item,$current)
 		{	
@@ -606,14 +646,14 @@
 								$cont->execute(array(2,$id));
 								$controw = $cont->rowCount();
 								if($controw > 0){
-									echo "Succesfully return to Room 310 a";
+									echo "Succesfully return";
 								}
 							}else if($qty_transfer < $qty){
 								$cont = $conn->prepare('UPDATE item_transfer SET t_quantity = (t_quantity - ?) WHERE id = ?');
 								$cont->execute(array($qty_transfer,$id));
 								$controw = $cont->rowCount();
 								if($controw > 0){
-									echo "Succesfully return to Room 310 b";
+									echo "Succesfully return";
 								}
 							}
 						}
@@ -763,5 +803,12 @@
 		$id = $_POST['id'];
 		$qty_transfer = $_POST['qty_transfer'];
 		$edit->return_transfer($id,$qty_transfer);
+		break;
+
+		case 'reassign_room';
+		$e_id = $_POST['item_id'];
+		$rm_id = $_POST['reassign_room'];
+		$p_rm = $_POST['e_rm'];
+		$edit->reassign_room($e_id,$rm_id,$p_rm);
 		break;
 	}

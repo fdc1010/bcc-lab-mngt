@@ -6,6 +6,7 @@
 	include './components/tbl_dashboard.php';
 	
 	include './components/tbl_items.php';
+	include './components/items_panel.php';
 
 	include './components/tbl_borrow.php';
 

@@ -340,10 +340,6 @@ $('.item-edit').click(function(){
 								<option>Non-consumable</option>\
 							</select>\
 						<div class="form-group">\
-							<label>Room</label>\
-							<select name="e_rm" class="form-control" id="cbo_room" style="text-transform: capitalize;" required></select>\
-						</div>\
-						<div class="form-group">\
 						<label>Apps Installed</label>\
 							<textarea name="e_apps" class="form-control">'+e_apps+'</textarea>\
 						</div>\
@@ -355,25 +351,6 @@ $('.item-edit').click(function(){
                     </form>';
 
 	$('.equipment-forminfo').html(append);
-
-	$.ajax({
-		type: "POST",
-		url: "../class/display/display",
-		data: { key: 'opt_rooms' }
-	})
-	.done(function(response){
-		const result = JSON.parse(response);
-		const data = result.data;
-		$('#cbo_room').empty();
-		var opt = '';
-		data.forEach((elem) => {			
-			if(e_rm_id == elem[0]){
-			}else{
-				opt += '<option>'+elem[1]+'</option>';
-			}
-		});
-		$('#cbo_room').html(opt);
-	});
 
 	$.ajax({
 		type: "POST",
@@ -427,6 +404,75 @@ $('.item-edit').click(function(){
 				console.log(data);
 			});
 
+    });
+});
+
+$('.item-reassigned_room').click(function(){
+  $('.equipment-info').toggle(effect, options, duration);
+	
+	var id = getequipmentid();
+	var e_rm= $('.e_rm').text();
+
+	var append = '  <form class="frm_item-reassign_room">\
+										<input type="hidden" name="item_id" value="'+id+'">\
+										<input type="hidden" name="e_rm" value="'+e_rm+'">\
+										<h4 class="alert bg-navbar-panel">Reassign Room</h4>\
+										<div class="form-group">\
+											<label>Room</label>\
+											<select name="reassign_room" class="form-control" id="cbo_room" style="text-transform: capitalize;" required></select>\
+										</div>\
+										<hr/>\
+										<div class="form-group">\
+												<button class="btn btn-danger cancel-item-reassign_room" type="button">Cancel</button>\
+												<button class="btn btn-primary" type="submit">Reassign</button>\
+										</div>\
+                  </form>';
+
+	$('.equipment-forminfo').html(append);
+
+	$.ajax({
+		type: "POST",
+		url: "../class/display/display",
+		data: { key: 'opt_rooms' }
+	})
+	.done(function(response){
+		const result = JSON.parse(response);
+		const data = result.data;
+		$('#cbo_room').empty();
+		var opt = '';
+		data.forEach((elem) => {
+			if(e_rm.toUpperCase() !== elem[1].toUpperCase()){
+				opt += '<option value='+elem[0]+'>'+elem[1]+'</option>';				
+			}
+		});
+		$('#cbo_room').html(opt);
+	});
+
+	$('.frm_item-reassign_room').submit(function(e){
+			
+			e.preventDefault();
+			if (confirm("Are you sure?")) {
+				var frmdata = $(this).serialize()+'&key=reassign_room';
+				$.ajax({
+					type: "POST",
+					url: "../class/edit/edit",
+					data: frmdata
+				})
+				.done(function(data){
+					console.log(data);
+					if(data == 1){
+						toastr.success("Item successfully reassigned.");
+						table_equipment.ajax.reload(null,false);
+					}else{
+						toastr.error('Failed to reassigned');
+					}
+				})
+				.fail(function(data){
+					console.log(data);
+				});
+				$('.cancel-item-reassign_room').click();
+			}
+			return false;
     });
 });
 
